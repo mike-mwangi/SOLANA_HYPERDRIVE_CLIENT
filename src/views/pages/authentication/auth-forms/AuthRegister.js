@@ -38,7 +38,7 @@ import { openSnackbar } from 'store/slices/snackbar';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-// ===========================|| FIREBASE - REGISTER ||=========================== //
+// ===========================|| JWT - REGISTER ||=========================== //
 
 const JWTRegister = ({ ...others }) => {
     const theme = useTheme();
@@ -48,6 +48,7 @@ const JWTRegister = ({ ...others }) => {
 
     const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
     const [showPassword, setShowPassword] = React.useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
     const [checked, setChecked] = React.useState(true);
 
     const [strength, setStrength] = React.useState(0);
@@ -59,6 +60,9 @@ const JWTRegister = ({ ...others }) => {
 
     const handleClickShowPassword = () => {
         setShowPassword(!showPassword);
+    };
+    const handleClickShowConfirmPassword = () => {
+        setShowConfirmPassword(!showConfirmPassword);
     };
 
     const handleMouseDownPassword = (event) => {
@@ -175,7 +179,7 @@ const JWTRegister = ({ ...others }) => {
                             </Grid>
                         </Grid>
                         <FormControl fullWidth error={Boolean(touched.email && errors.email)} sx={{ ...theme.typography.customInput }}>
-                            <InputLabel htmlFor="outlined-adornment-email-register">Email Address / Username</InputLabel>
+                            <InputLabel htmlFor="outlined-adornment-email-register">Email Address</InputLabel>
                             <OutlinedInput
                                 id="outlined-adornment-email-register"
                                 type="email"
@@ -234,7 +238,9 @@ const JWTRegister = ({ ...others }) => {
                             error={Boolean(touched.phoneNumber && errors.phoneNumber)}
                             sx={{ ...theme.typography.customInput }}
                         >
-                            <InputLabel htmlFor="outlined-adornment-phone-register">Phone Number</InputLabel>
+                            <InputLabel htmlFor="outlined-adornment-phone-register" shrink={!!phoneCode}>
+                                Phone Number
+                            </InputLabel>
                             <OutlinedInput
                                 id="outlined-adornment-phone-register"
                                 type="text"
@@ -310,6 +316,42 @@ const JWTRegister = ({ ...others }) => {
                                 </Box>
                             </FormControl>
                         )}
+
+                        <FormControl
+                            fullWidth
+                            error={Boolean(touched.confirmPassword && errors.confirmPassword)}
+                            sx={{ ...theme.typography.customInput }}
+                        >
+                            <InputLabel htmlFor="outlined-adornment-confirm-password">Confirm Password</InputLabel>
+                            <OutlinedInput
+                                id="outlined-adornment-confirm-password"
+                                type={showConfirmPassword ? 'text' : 'password'}
+                                value={values.confirmPassword}
+                                name="confirmPassword"
+                                label="Confirm Password"
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                endAdornment={
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            aria-label="toggle confirm password visibility"
+                                            onClick={handleClickShowConfirmPassword}
+                                            onMouseDown={handleMouseDownPassword}
+                                            edge="end"
+                                            size="large"
+                                        >
+                                            {showConfirmPassword ? <Visibility /> : <VisibilityOff />}
+                                        </IconButton>
+                                    </InputAdornment>
+                                }
+                                inputProps={{}}
+                            />
+                            {touched.confirmPassword && errors.confirmPassword && (
+                                <FormHelperText error id="standard-weight-helper-text-confirm-password-register">
+                                    {errors.confirmPassword}
+                                </FormHelperText>
+                            )}
+                        </FormControl>
 
                         <Grid container alignItems="center" justifyContent="space-between">
                             <Grid item>
