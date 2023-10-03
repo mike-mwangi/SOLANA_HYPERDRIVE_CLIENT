@@ -1,13 +1,15 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'store';
+import { Link, useNavigate } from 'react-router-dom';
+import { COUNTRIES } from 'utils/Constants';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
 import {
+    Autocomplete,
     Box,
     Button,
     Checkbox,
-    Divider,
     FormControl,
     FormControlLabel,
     FormHelperText,
@@ -26,12 +28,11 @@ import * as Yup from 'yup';
 import { Formik } from 'formik';
 
 // project imports
-import useAuth from 'hooks/useAuth';
-import useConfig from 'hooks/useConfig';
-import useScriptRef from 'hooks/useScriptRef';
-import Google from 'assets/images/icons/google.svg';
 import AnimateButton from 'ui-component/extended/AnimateButton';
+import useAuth from 'hooks/useAuth';
+import useScriptRef from 'hooks/useScriptRef';
 import { strengthColor, strengthIndicatorNumFunc } from 'utils/password-strength';
+import { openSnackbar } from 'store/slices/snackbar';
 
 // assets
 import Visibility from '@mui/icons-material/Visibility';
@@ -39,25 +40,22 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 // ===========================|| FIREBASE - REGISTER ||=========================== //
 
-const FirebaseRegister = ({ ...others }) => {
+const JWTRegister = ({ ...others }) => {
     const theme = useTheme();
+    const navigate = useNavigate();
     const scriptedRef = useScriptRef();
+    const dispatch = useDispatch();
+
     const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
-    const { borderRadius } = useConfig();
     const [showPassword, setShowPassword] = React.useState(false);
     const [checked, setChecked] = React.useState(true);
 
     const [strength, setStrength] = React.useState(0);
     const [level, setLevel] = React.useState();
-    const { firebaseRegister, firebaseGoogleSignIn } = useAuth();
+    const { register } = useAuth();
 
-    const googleHandler = async () => {
-        try {
-            await firebaseGoogleSignIn();
-        } catch (err) {
-            console.error(err);
-        }
-    };
+    const [country, setCountry] = useState('');
+    const [phoneCode, setPhoneCode] = useState('');
 
     const handleClickShowPassword = () => {
         setShowPassword(!showPassword);
@@ -73,6 +71,15 @@ const FirebaseRegister = ({ ...others }) => {
         setLevel(strengthColor(temp));
     };
 
+    const countryToFlag = (isoCode) =>
+        typeof String.fromCodePoint !== 'undefined'
+            ? isoCode.toUpperCase().replace(/./g, (char) => String.fromCodePoint(char.charCodeAt(0) + 127397))
+            : isoCode;
+
+    useEffect(() => {
+        changePassword('123456');
+    }, []);
+
     useEffect(() => {
         changePassword('123456');
     }, []);
@@ -80,52 +87,6 @@ const FirebaseRegister = ({ ...others }) => {
     return (
         <>
             <Grid container direction="column" justifyContent="center" spacing={2}>
-                <Grid item xs={12}>
-                    <AnimateButton>
-                        <Button
-                            variant="outlined"
-                            fullWidth
-                            onClick={googleHandler}
-                            size="large"
-                            sx={{
-                                color: 'grey.700',
-                                backgroundColor: theme.palette.mode === 'dark' ? theme.palette.dark.main : theme.palette.grey[50],
-                                borderColor: theme.palette.mode === 'dark' ? theme.palette.dark.light + 20 : theme.palette.grey[100]
-                            }}
-                        >
-                            <Box sx={{ display: 'flex', mr: { xs: 1, sm: 2, width: 20 } }}>
-                                <img src={Google} alt="google" width={16} height={16} style={{ marginRight: matchDownSM ? 8 : 16 }} />
-                            </Box>
-                            Sign up with Google
-                        </Button>
-                    </AnimateButton>
-                </Grid>
-                <Grid item xs={12}>
-                    <Box sx={{ alignItems: 'center', display: 'flex' }}>
-                        <Divider sx={{ flexGrow: 1 }} orientation="horizontal" />
-                        <Button
-                            variant="outlined"
-                            sx={{
-                                cursor: 'unset',
-                                m: 2,
-                                py: 0.5,
-                                px: 7,
-                                borderColor:
-                                    theme.palette.mode === 'dark'
-                                        ? `${theme.palette.dark.light + 20} !important`
-                                        : `${theme.palette.grey[100]} !important`,
-                                color: `${theme.palette.grey[900]} !important`,
-                                fontWeight: 500,
-                                borderRadius: `${borderRadius}px`
-                            }}
-                            disableRipple
-                            disabled
-                        >
-                            OR
-                        </Button>
-                        <Divider sx={{ flexGrow: 1 }} orientation="horizontal" />
-                    </Box>
-                </Grid>
                 <Grid item xs={12} container alignItems="center" justifyContent="center">
                     <Box sx={{ mb: 2 }}>
                         <Typography variant="subtitle1">Sign up with Email address</Typography>
@@ -137,6 +98,8 @@ const FirebaseRegister = ({ ...others }) => {
                 initialValues={{
                     email: '',
                     password: '',
+                    firstName: '',
+                    lastName: '',
                     submit: null
                 }}
                 validationSchema={Yup.object().shape({
@@ -145,21 +108,32 @@ const FirebaseRegister = ({ ...others }) => {
                 })}
                 onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                     try {
-                        await firebaseRegister(values.email, values.password).then(
-                            () => {
-                                // WARNING: do not set any formik state here as formik might be already destroyed here. You may get following error by doing so.
-                                // Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application.
-                                // To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.
-                                // github issue: https://github.com/formium/formik/issues/2430
-                            },
-                            (err) => {
-                                if (scriptedRef.current) {
-                                    setStatus({ success: false });
-                                    setErrors({ submit: err.message });
-                                    setSubmitting(false);
-                                }
-                            }
-                        );
+                        let cleanedPhoneNumber = values.phoneNumber.replace(/\D/g, ''); // strip out non-digit characters
+                        if (!cleanedPhoneNumber.startsWith(phoneCode)) {
+                            cleanedPhoneNumber = `+${phoneCode}${cleanedPhoneNumber}`;
+                        } else {
+                            cleanedPhoneNumber = `+${cleanedPhoneNumber}`;
+                        }
+                        await register(values.email, values.password, values.firstName, values.lastName);
+                        if (scriptedRef.current) {
+                            setStatus({ success: true });
+                            setSubmitting(false);
+                            dispatch(
+                                openSnackbar({
+                                    open: true,
+                                    message: 'Your registration has been successfully completed.',
+                                    variant: 'alert',
+                                    alert: {
+                                        color: 'success'
+                                    },
+                                    close: false
+                                })
+                            );
+
+                            setTimeout(() => {
+                                navigate('/login', { replace: true });
+                            }, 1500);
+                        }
                     } catch (err) {
                         console.error(err);
                         if (scriptedRef.current) {
@@ -170,7 +144,7 @@ const FirebaseRegister = ({ ...others }) => {
                     }
                 }}
             >
-                {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
+                {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values, setFieldValue }) => (
                     <form noValidate onSubmit={handleSubmit} {...others}>
                         <Grid container spacing={matchDownSM ? 0 : 2}>
                             <Grid item xs={12} sm={6}>
@@ -178,9 +152,11 @@ const FirebaseRegister = ({ ...others }) => {
                                     fullWidth
                                     label="First Name"
                                     margin="normal"
-                                    name="fname"
+                                    name="firstName"
                                     type="text"
-                                    defaultValue=""
+                                    value={values.firstName}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
                                     sx={{ ...theme.typography.customInput }}
                                 />
                             </Grid>
@@ -189,9 +165,11 @@ const FirebaseRegister = ({ ...others }) => {
                                     fullWidth
                                     label="Last Name"
                                     margin="normal"
-                                    name="lname"
+                                    name="lastName"
                                     type="text"
-                                    defaultValue=""
+                                    value={values.lastName}
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
                                     sx={{ ...theme.typography.customInput }}
                                 />
                             </Grid>
@@ -210,6 +188,66 @@ const FirebaseRegister = ({ ...others }) => {
                             {touched.email && errors.email && (
                                 <FormHelperText error id="standard-weight-helper-text--register">
                                     {errors.email}
+                                </FormHelperText>
+                            )}
+                        </FormControl>
+
+                        <Grid>
+                            <Autocomplete
+                                id="country-select-demo"
+                                options={COUNTRIES}
+                                autoHighlight
+                                getOptionLabel={(option) => option.label}
+                                renderOption={(props, option) => (
+                                    <li {...props} style={{ fontSize: 15 }}>
+                                        <span style={{ marginRight: 10, fontSize: 18 }}>{countryToFlag(option.code)}</span>
+                                        {option.label} ({option.code}) +{option.phone}
+                                    </li>
+                                )}
+                                onChange={(event, value) => {
+                                    if (value) {
+                                        setCountry(value.label);
+                                        setPhoneCode(value.phone);
+                                        setFieldValue('phoneNumber', `+${value.phone}`);
+                                    } else {
+                                        setCountry('');
+                                        setPhoneCode('');
+                                        setFieldValue('phoneNumber', '');
+                                    }
+                                }}
+                                renderInput={(params) => (
+                                    <TextField
+                                        {...params}
+                                        label="Choose a country"
+                                        value={country}
+                                        inputProps={{
+                                            ...params.inputProps,
+                                            autoComplete: 'country' // disable autocomplete and autofill
+                                        }}
+                                    />
+                                )}
+                            />
+                        </Grid>
+
+                        <FormControl
+                            fullWidth
+                            error={Boolean(touched.phoneNumber && errors.phoneNumber)}
+                            sx={{ ...theme.typography.customInput }}
+                        >
+                            <InputLabel htmlFor="outlined-adornment-phone-register">Phone Number</InputLabel>
+                            <OutlinedInput
+                                id="outlined-adornment-phone-register"
+                                type="text"
+                                value={values.phoneNumber} // No prefixing with phoneCode
+                                name="phoneNumber"
+                                placeholder={`+${phoneCode} Number`} // Display phone code in placeholder
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                inputProps={{}}
+                            />
+                            {touched.phoneNumber && errors.phoneNumber && (
+                                <FormHelperText error id="standard-weight-helper-text--register">
+                                    {errors.phoneNumber}
                                 </FormHelperText>
                             )}
                         </FormControl>
@@ -323,4 +361,4 @@ const FirebaseRegister = ({ ...others }) => {
     );
 };
 
-export default FirebaseRegister;
+export default JWTRegister;
