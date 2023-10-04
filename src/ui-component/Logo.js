@@ -12,7 +12,7 @@ const Logo = () => {
 
     return (
         // <img src={theme.palette.mode === 'dark' ? logoDark : logo} alt="Berry" width="100" />
-        <img src={solanaLogo} alt="Berry" width="70" />
+        <img src={solanaLogo} alt="Berry" width="60" />
 
         // <svg width="92" height="32" viewBox="0 0 92 32" fill="none" xmlns="http://www.w3.org/2000/svg">
         //     <path

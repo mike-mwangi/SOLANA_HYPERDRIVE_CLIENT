@@ -101,9 +101,12 @@ const JWTRegister = ({ ...others }) => {
             <Formik
                 initialValues={{
                     email: '',
-                    password: '',
                     firstName: '',
                     lastName: '',
+                    country: '',
+                    phoneNumber: '',
+                    password: '',
+                    confirmPassword: '',
                     submit: null
                 }}
                 validationSchema={Yup.object().shape({
@@ -118,7 +121,7 @@ const JWTRegister = ({ ...others }) => {
                         } else {
                             cleanedPhoneNumber = `+${cleanedPhoneNumber}`;
                         }
-                        await register(values.email, values.password, values.firstName, values.lastName);
+                        await register(values.email, values.password, values.firstName, values.lastName, cleanedPhoneNumber, country);
                         if (scriptedRef.current) {
                             setStatus({ success: true });
                             setSubmitting(false);
