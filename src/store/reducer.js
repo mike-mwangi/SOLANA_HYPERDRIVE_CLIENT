@@ -6,6 +6,8 @@ import storage from 'redux-persist/lib/storage';
 // project imports
 import snackbarReducer from './slices/snackbar';
 import menuReducer from './slices/menu';
+import registryReducer from './slices/registry';
+import fileReducer from './slices/file';
 
 // ==============================|| COMBINE REDUCER ||============================== //
 
@@ -18,6 +20,8 @@ const reducer = combineReducers({
         },
         snackbarReducer
     ),
+    registry: registryReducer,
+    file: fileReducer,
     menu: menuReducer
 });
 

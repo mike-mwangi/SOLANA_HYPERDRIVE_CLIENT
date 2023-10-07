@@ -9,7 +9,11 @@ export default function componentStyleOverrides(theme, borderRadius, outlinedFil
             styleOverrides: {
                 root: {
                     fontWeight: 500,
-                    borderRadius: '4px'
+                    borderRadius: '4px',
+                    boxShadow: theme.customShadows.primary,
+                    ':hover': {
+                        boxShadow: 'none'
+                    }
                 }
             }
         },
@@ -108,7 +112,7 @@ export default function componentStyleOverrides(theme, borderRadius, outlinedFil
                     color: theme.palette.text.dark,
                     '&::placeholder': {
                         color: theme.palette.text.secondary,
-                        fontSize: '0.875rem'
+                        fontSize: '1rem'
                     }
                 }
             }

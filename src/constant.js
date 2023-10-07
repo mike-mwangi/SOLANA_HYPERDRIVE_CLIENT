@@ -5,4 +5,6 @@ const LAYOUT_CONST = {
     MINI_DRAWER: 'mini-drawer'
 };
 
+export const REGISTRY_TYPES = ['Governmental', 'Non-Governmental', 'International-Organization', 'Private-Company'];
+
 export default LAYOUT_CONST;

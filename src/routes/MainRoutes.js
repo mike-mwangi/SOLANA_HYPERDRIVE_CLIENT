@@ -7,15 +7,17 @@ import Loadable from 'ui-component/Loadable';
 
 // sample page routing
 const SamplePage = Loadable(lazy(() => import('views/sample-page')));
+const RegistryAdd = Loadable(lazy(() => import('views/Registries/Onboarding/edit')));
 
 // ==============================|| MAIN ROUTING ||============================== //
 
 const MainRoutes = {
     path: '/',
     element: (
-        <AuthGuard>
-            <MainLayout />
-        </AuthGuard>
+        // TODO: REMOVE THESE COMMENTS
+        // <AuthGuard>
+        <MainLayout />
+        // </AuthGuard>
     ),
     children: [
         {
@@ -23,8 +25,8 @@ const MainRoutes = {
             element: <SamplePage />
         },
         {
-            path: '/sample-page',
-            element: <SamplePage />
+            path: '/registry/add',
+            element: <RegistryAdd />
         }
     ]
 };
