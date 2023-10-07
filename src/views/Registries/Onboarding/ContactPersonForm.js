@@ -1,5 +1,4 @@
 /* eslint-disable no-underscore-dangle */
-import PropTypes from 'prop-types';
 
 // material-ui
 import { Button, Grid, Stack, TextField, Typography } from '@mui/material';
@@ -10,15 +9,10 @@ import AnimateButton from 'ui-component/extended/AnimateButton';
 // third-party
 import { useFormik } from 'formik';
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'store';
 import { patchRegistry } from 'store/slices/registry';
-import FileDownload from 'ui-component/FileDownload';
-import FileUpload from 'ui-component/FileUpload';
 import InputLabel from 'ui-component/extended/Form/InputLabel';
-import * as yup from 'yup';
-import { toast } from 'react-toastify';
-
-
 
 // ==============================|| FORM WIZARD - VALIDATION  ||============================== //
 
@@ -111,4 +105,3 @@ export default function ContactPersonForm({ handleNext, handleBack, setErrorInde
         </>
     );
 }
-

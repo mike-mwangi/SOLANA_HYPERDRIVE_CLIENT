@@ -42,8 +42,7 @@ export default function DocumentationForm({ handleNext, handleBack, setErrorInde
 
     const formik = useFormik({
         initialValues: {
-            contactName: registry.contactName,
-            contactEmail: registry.contactEmail
+            certificateOfIncorporation: []
         },
         onSubmit: (values) => {
             setSubmitted(true);
@@ -70,18 +69,6 @@ export default function DocumentationForm({ handleNext, handleBack, setErrorInde
                             document={registry}
                         />
                         <FileDownload field={registry?.certificateOfIncorporation} label="Certificate of Incorporation" />
-                    </Grid>
-                    <Grid item xs={12}>
-                        <InputLabel>Contact Email</InputLabel>
-                        <TextField
-                            fullWidth
-                            name="contactEmail"
-                            value={formik.values.contactEmail}
-                            onChange={formik.handleChange}
-                            error={formik.touched.contactEmail && Boolean(formik.errors.contactEmail)}
-                            helperText={formik.touched.contactEmail && formik.errors.contactEmail}
-                            type="email"
-                        />
                     </Grid>
 
                     <Grid item xs={12}>

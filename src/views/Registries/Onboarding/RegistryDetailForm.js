@@ -80,9 +80,11 @@ export default function RegistryDetailForm({ handleNext, setErrorIndex }) {
         },
         validationSchema,
         onSubmit: async (values) => {
+            console.log('here');
             if (id) {
                 dispatch(patchRegistry({ id, data: { ...values, step: 1 } }));
             } else {
+                console.log('here');
                 dispatch(postRegistry(values));
             }
             setSubmitted(true);
@@ -146,6 +148,19 @@ will be used for identification and reference throughout the platform."
                             ))}
                         </Select>
                     </Grid>
+                    <Grid item xs={12}>
+                        <InputLabel>Jurisdiction</InputLabel>
+                        <TextField
+                            id="jurisdiction"
+                            name="jurisdiction"
+                            value={formik.values.jurisdiction}
+                            onChange={formik.handleChange}
+                            error={formik.touched.jurisdiction && Boolean(formik.errors.jurisdiction)}
+                            helperText={formik.touched.jurisdiction && formik.errors.jurisdiction}
+                            fullWidth
+                        />
+                    </Grid>
+
                     <Grid item xs={12}>
                         <FileUpload
                             label="Upload your registry logo"

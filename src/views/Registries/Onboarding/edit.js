@@ -46,7 +46,7 @@ const onBoardingPage = () => {
     const error = useSelector((state) => state.registry.error);
     const [steps, setSteps] = useState(['Registry Details', 'Contact Person Details', 'Documentation', 'Review']);
     const [errorIndex, setErrorIndex] = useState(null);
-    // const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
     const [activeStep, setActiveStep] = useState(registry?.step);
 
     useEffect(() => {
@@ -68,7 +68,7 @@ const onBoardingPage = () => {
             // submit data to backend
             // TODO
             dispatch(submitRegistry(registry?._id));
-            // setLoading(true);
+            setLoading(true);
         } else {
             setActiveStep(activeStep + 1);
             setErrorIndex(null);
@@ -79,7 +79,7 @@ const onBoardingPage = () => {
         setActiveStep(activeStep - 1);
     };
 
-    // if (loading) return <Loader />;
+    if (loading) return <Loader />;
 
     return (
         <Grid container justifyContent="center">

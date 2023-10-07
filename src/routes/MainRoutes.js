@@ -7,8 +7,8 @@ import Loadable from 'ui-component/Loadable';
 
 // sample page routing
 const SamplePage = Loadable(lazy(() => import('views/sample-page')));
-const RegistryAdd = Loadable(lazy(() => import('views/Registries/Onboarding/edit')));
-
+const RegistryAdd = Loadable(lazy(() => import('views/Registries/Onboarding')));
+const RegistryEdit = Loadable(lazy(() => import('views/Registries/Onboarding/edit')));
 // ==============================|| MAIN ROUTING ||============================== //
 
 const MainRoutes = {
@@ -26,6 +26,10 @@ const MainRoutes = {
         },
         {
             path: '/registry/add',
+            element: <RegistryAdd />
+        },
+        {
+            path: '/registry/edit/:id',
             element: <RegistryAdd />
         }
     ]
