@@ -46,7 +46,7 @@ export default function DocumentationForm({ handleNext, handleBack, setErrorInde
         },
         onSubmit: (values) => {
             setSubmitted(true);
-            dispatch(patchRegistry({ id: registry._id, data: { ...values, step: 6 } }));
+            dispatch(patchRegistry({ id: registry._id, data: { ...values, step: 3 } }));
         }
     });
 

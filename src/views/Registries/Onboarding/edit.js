@@ -133,7 +133,7 @@ const onBoardingPage = () => {
                             </>
                         ) : (
                             <>
-                                {getStepContent(registry, activeStep, handleNext, handleBack, setErrorIndex)}
+                                {getStepContent(activeStep, handleNext, handleBack, setErrorIndex)}
                                 {registryStatus === 'loading' && <Loader />}
                                 {activeStep === steps.length - 1 && (
                                     <Stack direction="row" justifyContent={activeStep !== 0 ? 'space-between' : 'flex-end'}>

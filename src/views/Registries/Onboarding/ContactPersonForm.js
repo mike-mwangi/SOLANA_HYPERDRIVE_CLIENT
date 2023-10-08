@@ -3,7 +3,7 @@
 // material-ui
 import { Button, Grid, Stack, TextField, Typography } from '@mui/material';
 // import InputLabel,CloudUploadIcon, CardMedia, CircularProgress,
-// project imports
+// registry imports
 import AnimateButton from 'ui-component/extended/AnimateButton';
 
 // third-party
@@ -18,32 +18,32 @@ import InputLabel from 'ui-component/extended/Form/InputLabel';
 
 export default function ContactPersonForm({ handleNext, handleBack, setErrorIndex }) {
     const dispatch = useDispatch();
-    const project = useSelector((state) => state.project.project);
-    const projectStatus = useSelector((state) => state.project.status);
-    const projectError = useSelector((state) => state.project.error);
+    const registry = useSelector((state) => state.registry.registry);
+    const registryStatus = useSelector((state) => state.registry.status);
+    const registryError = useSelector((state) => state.registry.error);
     const [submitted, setSubmitted] = useState(false);
 
     useEffect(() => {
         if (submitted) {
-            if (projectStatus === 'succeeded') {
+            if (registryStatus === 'succeeded') {
                 // setSubmitted(false);
                 handleNext();
-            } else if (projectStatus === 'failed') {
+            } else if (registryStatus === 'failed') {
                 // setSubmitted(false);
                 // setErrorIndex(2);
-                toast.error(projectError);
+                toast.error(registryError);
             }
         }
-    }, [projectStatus]);
+    }, [registryStatus]);
 
     const formik = useFormik({
         initialValues: {
-            contactName: project.contactName,
-            contactEmail: project.contactEmail
+            contactName: registry.contactName,
+            contactEmail: registry.contactEmail
         },
         onSubmit: (values) => {
             setSubmitted(true);
-            dispatch(patchRegistry({ id: project._id, data: { ...values, step: 6 } }));
+            dispatch(patchRegistry({ id: registry._id, data: { ...values, step: 2 } }));
         }
     });
 

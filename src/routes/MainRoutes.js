@@ -30,7 +30,7 @@ const MainRoutes = {
         },
         {
             path: '/registry/edit/:id',
-            element: <RegistryAdd />
+            element: <RegistryEdit />
         }
     ]
 };
