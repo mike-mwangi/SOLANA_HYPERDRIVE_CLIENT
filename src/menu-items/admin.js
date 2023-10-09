@@ -47,7 +47,7 @@ const icons = {
     IconFilePencil
 };
 
-// ==============================|| PROPONENT MENU ITEMS ||============================== //
+// ==============================|| developer MENU ITEMS ||============================== //
 
 const admin = {
     id: 'admin',

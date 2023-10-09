@@ -47,24 +47,24 @@ const icons = {
     IconFilePencil
 };
 
-// ==============================|| PROPONENT MENU ITEMS ||============================== //
+// ==============================|| developer MENU ITEMS ||============================== //
 
-const proponent = {
-    id: 'proponent',
-    title: <FormattedMessage id="proponent" defaultMessage="Project Proponent" />,
+const developer = {
+    id: 'developer',
+    title: <FormattedMessage id="developer" defaultMessage="Project developer" />,
     icon: icons.IconApps,
     type: 'group',
     children: [
         {
-            id: 'proponent_dashboard',
+            id: 'developer_dashboard',
             title: <FormattedMessage id="Dashboard" defaultMessage="Dashboard" />,
             type: 'item',
-            url: '/proponent/dashboard',
+            url: '/developer/dashboard',
             icon: icons.IconDashboard,
             breadcrumbs: false
         },
         {
-            id: 'proponent_projects',
+            id: 'developer_projects',
             title: <FormattedMessage id="Projects" defaultMessage="Projects" />,
             type: 'collapse',
             breadcrumbs: false,
@@ -75,7 +75,7 @@ const proponent = {
                     title: <FormattedMessage id="Add Project" defaultMessage="Add Project" />,
                     type: 'item',
                     icon: icons.IconHeartHandshake,
-                    url: '/proponent/projects/add',
+                    url: '/developer/projects/add',
                     breadcrumbs: false,
                     external: true
                 },
@@ -83,7 +83,7 @@ const proponent = {
                     id: 'project_list',
                     title: <FormattedMessage id="Projects List" defaultMessage="Projects List" />,
                     type: 'item',
-                    url: '/proponent/projects/list',
+                    url: '/developer/projects/list',
                     icon: icons.IconClipboardList,
                     breadcrumbs: false,
                     external: true
@@ -93,4 +93,4 @@ const proponent = {
     ]
 };
 
-export default proponent;
+export default developer;

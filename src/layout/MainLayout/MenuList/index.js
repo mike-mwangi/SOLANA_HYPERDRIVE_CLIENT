@@ -21,8 +21,8 @@ const handlerFilterMenuItems = (items, role) => {
             return items.filter((item) => item.id === 'admin');
         case 'registry':
             return items.filter((item) => item.id === 'originator');
-        case 'proponent':
-            return items.filter((item) => item.id === 'proponent');
+        case 'developer':
+            return items.filter((item) => item.id === 'developer');
         default:
             return items;
     }

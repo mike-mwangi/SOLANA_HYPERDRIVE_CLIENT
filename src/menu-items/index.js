@@ -1,11 +1,11 @@
 import admin from './admin';
-import proponent from './proponent';
+import developer from './developer';
 import registry from './registry';
 
 // ==============================|| MENU ITEMS ||============================== //
 
 const menuItems = {
-    items: [admin, proponent, registry]
+    items: [admin, developer, registry]
 };
 
 export default menuItems;
