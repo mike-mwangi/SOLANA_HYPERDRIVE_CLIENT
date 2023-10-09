@@ -1,8 +1,9 @@
 {
-    "name": "berry-material-react",
-    "version": "3.3.0",
+    "name": "solana-hyperdrive-react",
+    "version": "1.0.0",
     "private": true,
     "dependencies": {
+        "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
         "@emotion/cache": "^11.10.5",
         "@emotion/react": "^11.10.5",
         "@emotion/styled": "^11.10.5",

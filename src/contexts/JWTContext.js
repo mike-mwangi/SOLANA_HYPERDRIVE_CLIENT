@@ -200,9 +200,9 @@ export const JWTProvider = ({ children }) => {
         }
     };
 
-    const register = async (email, password, firstName, lastName, phoneNumber, country) => {
+    const register = async (email, password, firstName, lastName, phoneNumber, country, role) => {
         try {
-            const response = await axios.post('/auth/register', { email, password, firstName, lastName, phoneNumber, country });
+            const response = await axios.post('/auth/register', { email, password, firstName, lastName, phoneNumber, country, role });
             return response.data;
         } catch (error) {
             throw new Error(error.msg || error);

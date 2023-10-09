@@ -105,6 +105,7 @@ const JWTRegister = ({ ...others }) => {
                     lastName: '',
                     country: '',
                     phoneNumber: '',
+                    role: 'registry',
                     password: '',
                     confirmPassword: '',
                     submit: null

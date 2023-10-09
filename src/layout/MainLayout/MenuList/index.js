@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useEffect, useState, useCallback } from 'react';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -10,13 +10,49 @@ import NavGroup from './NavGroup';
 import LAYOUT_CONST from 'constant';
 import { HORIZONTAL_MAX_ITEM } from 'config';
 import useConfig from 'hooks/useConfig';
+import useAuth from 'hooks/useAuth';
+import { DashboardMenu } from 'menu-items/dashboard';
 
 // ==============================|| SIDEBAR MENU LIST ||============================== //
+
+const handlerFilterMenuItems = (items, role) => {
+    switch (role) {
+        case 'admin':
+            return items.filter((item) => item.id === 'admin');
+        case 'registry':
+            return items.filter((item) => item.id === 'originator');
+        case 'proponent':
+            return items.filter((item) => item.id === 'proponent');
+        default:
+            return items;
+    }
+};
 
 const MenuList = () => {
     const theme = useTheme();
     const matchDownMd = useMediaQuery(theme.breakpoints.down('md'));
     const { layout } = useConfig();
+    const { user } = useAuth();
+    const [menuItems, setMenuItems] = useState([...menuItem.items]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    const getDash = DashboardMenu();
+    const handlerMenuItem = useCallback(() => {
+        const isFound = menuItems.some((element) => element.id === 'dashboard');
+        if (getDash?.id !== undefined && !isFound) {
+            setMenuItems((prevItems) => [{ ...getDash }, ...prevItems]);
+        }
+    }, [getDash, menuItems]);
+
+    useEffect(() => {
+        handlerMenuItem();
+    }, [handlerMenuItem]);
+
+    useEffect(() => {
+        const filteredMenuItems = handlerFilterMenuItems(menuItems, user?.role);
+        setMenuItems(filteredMenuItems);
+        setIsLoading(false);
+    }, [user]);
 
     // last menu-item to show in horizontal menu bar
     const lastItem = layout === LAYOUT_CONST.HORIZONTAL_LAYOUT && !matchDownMd ? HORIZONTAL_MAX_ITEM : null;
@@ -32,6 +68,14 @@ const MenuList = () => {
             title: item.title,
             elements: item.children
         }));
+    }
+
+    if (isLoading) {
+        return (
+            <Typography variant="h6" color="primary" align="center">
+                Loading Menu Items
+            </Typography>
+        );
     }
 
     const navItems = menuItem.items.slice(0, lastItemIndex + 1).map((item) => {

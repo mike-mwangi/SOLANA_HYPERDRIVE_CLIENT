@@ -1,10 +1,11 @@
-import other from './other';
-import pages from './pages';
+import admin from './admin';
+import proponent from './proponent';
+import registry from './registry';
 
 // ==============================|| MENU ITEMS ||============================== //
 
 const menuItems = {
-    items: [pages, other]
+    items: [admin, proponent, registry]
 };
 
 export default menuItems;
