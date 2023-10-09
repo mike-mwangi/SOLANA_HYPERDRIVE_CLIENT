@@ -13,6 +13,10 @@ import * as serviceWorker from 'serviceWorker';
 import reportWebVitals from 'reportWebVitals';
 import { ConfigProvider } from 'contexts/ConfigContext';
 
+// Wallet integration
+import { ThirdwebProvider, metamaskWallet, coinbaseWallet, walletConnect, magicLink, phantomWallet } from '@thirdweb-dev/react';
+import { CeloAlfajoresTestnet } from '@thirdweb-dev/chains';
+
 // style + assets
 import 'assets/scss/style.scss';
 
@@ -25,7 +29,20 @@ root.render(
         <PersistGate loading={null} persistor={persister}>
             <ConfigProvider>
                 <BrowserRouter basename={BASE_PATH}>
-                    <App />
+                    <ThirdwebProvider
+                        supportedWallets={[
+                            metamaskWallet(),
+                            magicLink({
+                                apiKey: 'pk_live_A2FBCAA10A8CDF58'
+                            }),
+                            phantomWallet()
+                        ]}
+                        // supportedChains={[CeloAlfajoresTestnet]}
+                        // activeChain={CeloAlfajoresTestnet}
+                    >
+                        <App />
+                    </ThirdwebProvider>
+                    {/* <App /> */}
                 </BrowserRouter>
             </ConfigProvider>
         </PersistGate>

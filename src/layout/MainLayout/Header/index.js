@@ -12,8 +12,8 @@ import SearchSection from './SearchSection';
 import MobileSection from './MobileSection';
 import ProfileSection from './ProfileSection';
 import LocalizationSection from './LocalizationSection';
-import MegaMenuSection from './MegaMenuSection';
 import NotificationSection from './NotificationSection';
+import ConnectWeb3Wallet from './ConnectWeb3Wallet';
 
 // assets
 import { IconMenu2 } from '@tabler/icons';
@@ -77,6 +77,12 @@ const Header = ({ handleDrawerToggle }) => {
 
             {/* notification & profile */}
             <NotificationSection />
+
+            {/* Wallet */}
+            <Box sx={{ marginRight: 2 }}>
+                <ConnectWeb3Wallet />
+            </Box>
+
             <ProfileSection />
 
             {/* mobile header */}
