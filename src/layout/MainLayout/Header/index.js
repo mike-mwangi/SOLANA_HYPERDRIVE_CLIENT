@@ -75,13 +75,13 @@ const Header = ({ handleDrawerToggle }) => {
                 <LocalizationSection />
             </Box> */}
 
-            {/* notification & profile */}
-            <NotificationSection />
-
             {/* Wallet */}
             <Box sx={{ marginRight: 2 }}>
                 <ConnectWeb3Wallet />
             </Box>
+
+            {/* notification & profile */}
+            <NotificationSection />
 
             <ProfileSection />
 
