@@ -29,7 +29,7 @@ export const AWS_API = {
 // like '/berry-material-react/react/default'
 export const BASE_PATH = '';
 
-export const DASHBOARD_PATH = '/registry/projects/add';
+export const DASHBOARD_PATH = '/registry/dashboard';
 
 export const HORIZONTAL_MAX_ITEM = 6;
 
