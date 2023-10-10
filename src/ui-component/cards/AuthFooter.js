@@ -9,7 +9,7 @@ const AuthFooter = () => (
             solana hyperdrive
         </Typography>
         <Typography variant="subtitle2" component={Link} href="#" target="_blank" underline="hover">
-            &copy; solana-hyperdrive.com
+            &copy; carbonmarketsledger.com
         </Typography>
     </Stack>
 );
