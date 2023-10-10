@@ -7,6 +7,7 @@ import storage from 'redux-persist/lib/storage';
 import snackbarReducer from './slices/snackbar';
 import menuReducer from './slices/menu';
 import registryReducer from './slices/registry';
+import projectReducer from './slices/project';
 import fileReducer from './slices/file';
 
 // ==============================|| COMBINE REDUCER ||============================== //
@@ -21,6 +22,7 @@ const reducer = combineReducers({
         snackbarReducer
     ),
     registry: registryReducer,
+    project: projectReducer,
     file: fileReducer,
     menu: menuReducer
 });

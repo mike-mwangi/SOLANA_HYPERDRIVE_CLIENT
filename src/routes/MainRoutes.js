@@ -8,8 +8,11 @@ import RoleGuard from 'utils/route-guard/RoleGuard';
 
 // sample page routing
 const SamplePage = Loadable(lazy(() => import('views/sample-page')));
-const RegistryAdd = Loadable(lazy(() => import('views/Registries/Onboarding')));
-const RegistryEdit = Loadable(lazy(() => import('views/Registries/Onboarding/edit')));
+const RegistryAdd = Loadable(lazy(() => import('views/Registry/Onboarding')));
+const RegistryEdit = Loadable(lazy(() => import('views/Registry/Onboarding/edit')));
+const ProjectAdd = Loadable(lazy(() => import('views/Project/Onboarding')));
+const ProjectEdit = Loadable(lazy(() => import('views/Project/Onboarding/edit')));
+const ProjectList = Loadable(lazy(() => import('views/Project/List')));
 
 // 404 page
 const PageNotFound = Loadable(lazy(() => import('views/pages/maintenance/Error')));
@@ -46,7 +49,30 @@ const MainRoutes = {
                 </RoleGuard>
             )
         },
-        // Page not found
+        {
+            path: '/project/add',
+            element: (
+                <RoleGuard role={['registry']}>
+                    <ProjectAdd />
+                </RoleGuard>
+            )
+        },
+        {
+            path: '/project/edit/:id',
+            element: (
+                <RoleGuard role={['registry']}>
+                    <ProjectEdit />
+                </RoleGuard>
+            )
+        },
+        {
+            path: '/projects/list',
+            element: (
+                <RoleGuard role={['registry']}>
+                    <ProjectList />
+                </RoleGuard>
+            )
+        },
         {
             path: '*',
             element: <PageNotFound />

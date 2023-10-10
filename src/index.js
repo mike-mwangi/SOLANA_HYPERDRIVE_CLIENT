@@ -1,21 +1,20 @@
 import { createRoot } from 'react-dom/client';
 
 // third party
-import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 
 // project imports
 import App from 'App';
 import { BASE_PATH } from 'config';
-import { store, persister } from 'store';
-import * as serviceWorker from 'serviceWorker';
-import reportWebVitals from 'reportWebVitals';
 import { ConfigProvider } from 'contexts/ConfigContext';
+import reportWebVitals from 'reportWebVitals';
+import * as serviceWorker from 'serviceWorker';
+import { persister, store } from 'store';
 
 // Wallet integration
-import { ThirdwebProvider, metamaskWallet, coinbaseWallet, walletConnect, magicLink, phantomWallet } from '@thirdweb-dev/react';
-import { CeloAlfajoresTestnet } from '@thirdweb-dev/chains';
+import { ThirdwebProvider, magicLink, metamaskWallet, phantomWallet } from '@thirdweb-dev/react';
 
 // style + assets
 import 'assets/scss/style.scss';
