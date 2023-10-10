@@ -129,9 +129,9 @@ export default function ProjectDetailForm({ handleNext, setErrorIndex }) {
                             error={formik.touched.type && Boolean(formik.errors.type)}
                         >
                             {/* Add your project types here */}
-                            <MenuItem value={'Renewable Energy'}>Renewable Energy</MenuItem>
-                            <MenuItem value={'Afforestation'}>Afforestation</MenuItem>
-                            <MenuItem value={'Energy Efficiency'}>Energy Efficiency</MenuItem>
+                            <MenuItem value="Renewable Energy">Renewable Energy</MenuItem>
+                            <MenuItem value="Afforestation">Afforestation</MenuItem>
+                            <MenuItem value="Energy Efficiency">Energy Efficiency</MenuItem>
                             {/* ... other project types ... */}
                         </Select>
                     </Grid>
