@@ -75,7 +75,7 @@ const developer = {
                     title: <FormattedMessage id="Add Project" defaultMessage="Add Project" />,
                     type: 'item',
                     icon: icons.IconHeartHandshake,
-                    url: '/developer/projects/add',
+                    url: '/projects/add',
                     breadcrumbs: false,
                     external: true
                 },
@@ -83,7 +83,7 @@ const developer = {
                     id: 'project_list',
                     title: <FormattedMessage id="Projects List" defaultMessage="Projects List" />,
                     type: 'item',
-                    url: '/developer/projects/list',
+                    url: '/projects/list',
                     icon: icons.IconClipboardList,
                     breadcrumbs: false,
                     external: true

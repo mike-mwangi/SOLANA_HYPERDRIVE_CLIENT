@@ -13,6 +13,7 @@ const RegistryEdit = Loadable(lazy(() => import('views/Registry/Onboarding/edit'
 const ProjectAdd = Loadable(lazy(() => import('views/Project/Onboarding')));
 const ProjectEdit = Loadable(lazy(() => import('views/Project/Onboarding/edit')));
 const ProjectList = Loadable(lazy(() => import('views/Project/List')));
+const ProjectView = Loadable(lazy(() => import('views/Project/View')));
 
 // 404 page
 const PageNotFound = Loadable(lazy(() => import('views/pages/maintenance/Error')));
@@ -70,6 +71,14 @@ const MainRoutes = {
             element: (
                 <RoleGuard role={['registry']}>
                     <ProjectList />
+                </RoleGuard>
+            )
+        },
+        {
+            path: '/projects/:id',
+            element: (
+                <RoleGuard role={['registry']}>
+                    <ProjectView />
                 </RoleGuard>
             )
         },
