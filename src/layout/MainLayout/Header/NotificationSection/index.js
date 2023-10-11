@@ -12,6 +12,7 @@ import {
     ClickAwayListener,
     Divider,
     Grid,
+    IconButton,
     Paper,
     Popper,
     Stack,
@@ -22,6 +23,7 @@ import {
 
 // third-party
 import PerfectScrollbar from 'react-perfect-scrollbar';
+import CloseIcon from '@mui/icons-material/Close';
 
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
@@ -35,7 +37,7 @@ import { IconBell } from '@tabler/icons';
 const status = [
     {
         value: 'all',
-        label: 'All Notification'
+        label: 'All Notifications'
     },
     {
         value: 'new',
@@ -146,21 +148,23 @@ const NotificationSection = () => {
                                                 <Grid container alignItems="center" justifyContent="space-between" sx={{ pt: 2, px: 2 }}>
                                                     <Grid item>
                                                         <Stack direction="row" spacing={2}>
-                                                            <Typography variant="subtitle1">All Notification</Typography>
-                                                            <Chip
+                                                            <Typography variant="subtitle1">All Notifications</Typography>
+                                                            {/* <Chip
                                                                 size="small"
                                                                 label="01"
                                                                 sx={{
                                                                     color: theme.palette.background.default,
                                                                     bgcolor: theme.palette.warning.dark
                                                                 }}
-                                                            />
+                                                            /> */}
                                                         </Stack>
                                                     </Grid>
                                                     <Grid item>
-                                                        <Typography component={Link} to="#" variant="subtitle2" color="primary">
-                                                            Mark as all read
-                                                        </Typography>
+                                                        <Stack direction="row" spacing={2}>
+                                                            <IconButton aria-label="delete" onClick={handleClose}>
+                                                                <CloseIcon />
+                                                            </IconButton>
+                                                        </Stack>
                                                     </Grid>
                                                 </Grid>
                                             </Grid>
@@ -197,12 +201,12 @@ const NotificationSection = () => {
                                                 </PerfectScrollbar>
                                             </Grid>
                                         </Grid>
-                                        <Divider />
+                                        {/* <Divider />
                                         <CardActions sx={{ p: 1.25, justifyContent: 'center' }}>
                                             <Button size="small" disableElevation>
                                                 View All
                                             </Button>
-                                        </CardActions>
+                                        </CardActions> */}
                                     </MainCard>
                                 )}
                             </Paper>
