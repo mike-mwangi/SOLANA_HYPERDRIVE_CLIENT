@@ -122,7 +122,16 @@ const JWTRegister = ({ ...others }) => {
                         } else {
                             cleanedPhoneNumber = `+${cleanedPhoneNumber}`;
                         }
-                        await register(values.email, values.password, values.firstName, values.lastName, cleanedPhoneNumber, country);
+                        await register(
+                            values.email,
+                            values.password,
+                            values.firstName,
+                            values.lastName,
+
+                            cleanedPhoneNumber,
+                            country,
+                            values.role
+                        );
                         if (scriptedRef.current) {
                             setStatus({ success: true });
                             setSubmitting(false);

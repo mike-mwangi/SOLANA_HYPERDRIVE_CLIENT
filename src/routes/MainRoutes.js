@@ -51,7 +51,7 @@ const MainRoutes = {
             )
         },
         {
-            path: '/project/add',
+            path: '/projects/add',
             element: (
                 <RoleGuard role={['registry']}>
                     <ProjectAdd />
@@ -59,7 +59,7 @@ const MainRoutes = {
             )
         },
         {
-            path: '/project/edit/:id',
+            path: '/projects/edit/:id',
             element: (
                 <RoleGuard role={['registry']}>
                     <ProjectEdit />
@@ -75,7 +75,7 @@ const MainRoutes = {
             )
         },
         {
-            path: '/projects/:id',
+            path: '/projects/view/:id',
             element: (
                 <RoleGuard role={['registry']}>
                     <ProjectView />
