@@ -74,23 +74,17 @@ const AppBar = ({ ...others }) => {
                             <Logo />
                         </Typography>
                         <Stack direction="row" sx={{ display: { xs: 'none', sm: 'block' } }} spacing={{ xs: 1.5, md: 2.5 }}>
-                            <Button color="inherit" component={Link} href="#" target="_blank">
-                                Home
+                            <Button color="inherit" component={Link} href="#">
+                                Registries
                             </Button>
-                            <Button color="inherit" component={RouterLink} to="/login" target="_blank">
-                                Dashboard
+                            <Button color="inherit" component={Link} href="#">
+                                Listed Projects
                             </Button>
-                            <Button color="inherit" component={Link} href="https://codedthemes.gitbook.io/berry" target="_blank">
-                                Documentation
+                            <Button color="inherit" component={Link} href="#">
+                                FAQs
                             </Button>
-                            <Button
-                                component={Link}
-                                href="https://links.codedthemes.com/hsqll"
-                                disableElevation
-                                variant="contained"
-                                color="secondary"
-                            >
-                                Purchase Now
+                            <Button component={Link} href="/login" disableElevation variant="contained" color="secondary">
+                                Login
                             </Button>
                         </Stack>
                         <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
@@ -122,11 +116,7 @@ const AppBar = ({ ...others }) => {
                                                     <ListItemText primary="Dashboard" />
                                                 </ListItemButton>
                                             </Link>
-                                            <Link
-                                                style={{ textDecoration: 'none' }}
-                                                href="https://codedthemes.gitbook.io/berry"
-                                                target="_blank"
-                                            >
+                                            <Link style={{ textDecoration: 'none' }} href="#" target="_blank">
                                                 <ListItemButton component="a">
                                                     <ListItemIcon>
                                                         <IconBook />
@@ -134,16 +124,12 @@ const AppBar = ({ ...others }) => {
                                                     <ListItemText primary="Documentation" />
                                                 </ListItemButton>
                                             </Link>
-                                            <Link
-                                                style={{ textDecoration: 'none' }}
-                                                href="https://links.codedthemes.com/hsqll"
-                                                target="_blank"
-                                            >
+                                            <Link style={{ textDecoration: 'none' }} href="#" target="_blank">
                                                 <ListItemButton component="a">
                                                     <ListItemIcon>
                                                         <IconCreditCard />
                                                     </ListItemIcon>
-                                                    <ListItemText primary="Purchase Now" />
+                                                    <ListItemText primary="Listed Projects" />
                                                 </ListItemButton>
                                             </Link>
                                         </List>

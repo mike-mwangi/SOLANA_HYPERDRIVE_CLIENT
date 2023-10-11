@@ -32,16 +32,13 @@ root.render(
                         supportedWallets={[
                             metamaskWallet(),
                             magicLink({
-                                apiKey: 'pk_live_A2FBCAA10A8CDF58'
+                                apiKey: process.env.REACT_APP_MAGIC_LINK_KEY
                             }),
                             phantomWallet()
                         ]}
-                        // supportedChains={[CeloAlfajoresTestnet]}
-                        // activeChain={CeloAlfajoresTestnet}
                     >
                         <App />
                     </ThirdwebProvider>
-                    {/* <App /> */}
                 </BrowserRouter>
             </ConfigProvider>
         </PersistGate>

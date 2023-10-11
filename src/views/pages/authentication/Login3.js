@@ -77,6 +77,14 @@ const Login = () => {
                                             >
                                                 Don&apos;t have an account?
                                             </Typography>
+                                            <Typography
+                                                component={Link}
+                                                to="/"
+                                                variant="subtitle2"
+                                                sx={{ textDecoration: 'none', marginTop: 1 }}
+                                            >
+                                                Back to homepage
+                                            </Typography>
                                         </Grid>
                                     </Grid>
                                 </Grid>
