@@ -3,8 +3,8 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // project imports
+import { getLoginReroute } from 'helpers/LoginRerouteHelper';
 import useAuth from 'hooks/useAuth';
-import { DASHBOARD_PATH } from 'config';
 
 // ==============================|| GUEST GUARD ||============================== //
 
@@ -14,12 +14,12 @@ import { DASHBOARD_PATH } from 'config';
  */
 
 const GuestGuard = ({ children }) => {
-    const { isLoggedIn } = useAuth();
+    const { isLoggedIn, user } = useAuth();
     const navigate = useNavigate();
 
     useEffect(() => {
         if (isLoggedIn) {
-            navigate(DASHBOARD_PATH, { replace: true });
+            navigate(getLoginReroute(user), { replace: true });
         }
     }, [isLoggedIn, navigate]);
 

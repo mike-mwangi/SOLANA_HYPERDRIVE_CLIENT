@@ -9,28 +9,25 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
 // material-ui and other ui components
-import { Button, Grid, MenuItem, Select, Stack, TextField, Typography } from '@mui/material';
-import AnimateButton from 'ui-component/extended/AnimateButton';
+import { Autocomplete, Button, CircularProgress, Grid, MenuItem, Select, TextField, Typography } from '@mui/material';
 import InputLabel from 'ui-component/extended/Form/InputLabel';
-import FileUpload from 'ui-component/FileUpload';
 import Loader from 'ui-component/Loader';
 
 // third-party
 import { useFormik } from 'formik';
+import usePlacesAutocomplete from 'use-places-autocomplete';
 import * as yup from 'yup';
 
-import { REGISTRY_TYPES } from 'constant';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'store';
 import { patchProject, postProject } from 'store/slices/project';
-import ImageReviewCard from 'ui-component/cards/ImageReviewCard';
 
 // async function getLocationData(location) {
-//     const results = await getGeocode({ address: location });
+//     const results = await getGeocode({ location: location });
 //     const { lat, lng } = getLatLng(results[0]);
 //     let country = '';
-//     for (let i = 0; i < results[0].address_components.length; i++) {
-//         const component = results[0].address_components[i];
+//     for (let i = 0; i < results[0].location_components.length; i++) {
+//         const component = results[0].location_components[i];
 //         if (component.types.includes('country')) {
 //             country = component.long_name;
 //             break;
@@ -57,6 +54,13 @@ export default function ProjectDetailForm({ handleNext, setErrorIndex }) {
     const project = useSelector((state) => state.project.project);
     const projectStatus = useSelector((state) => state.project.status);
     const error = useSelector((state) => state.project.error);
+    const {
+        ready,
+        value,
+        suggestions: { status, data },
+        setValue,
+        clearSuggestions
+    } = usePlacesAutocomplete();
 
     useEffect(() => {
         if (submitted) {
@@ -151,16 +155,51 @@ export default function ProjectDetailForm({ handleNext, setErrorIndex }) {
                         />
                     </Grid>
 
-                    <Grid item xs={12}>
-                        <TextField
-                            fullWidth
-                            id="location"
-                            name="location"
-                            label="Project Location"
-                            value={formik.values.location}
-                            onChange={formik.handleChange}
-                            error={formik.touched.location && Boolean(formik.errors.location)}
-                            helperText={formik.touched.location && formik.errors.location}
+                    <Grid item xs={12} md={6}>
+                        <InputLabel id="location" helperText="Enter your Exact location or nearest Landmark">
+                            Where is your project located ?
+                        </InputLabel>
+                        <Autocomplete
+                            id="places"
+                            options={status === 'OK' ? data : []}
+                            isOptionEqualToValue={(option, value) => option.label === value?.description}
+                            autoHighlight
+                            getOptionLabel={(option) => (typeof option === 'string' ? option : option.description)}
+                            renderOption={(props, option) => (
+                                <li {...props} style={{ fontSize: 15 }} value={option.label}>
+                                    {option.description}
+                                </li>
+                            )}
+                            onChange={(e, val) => {
+                                if (val) {
+                                    formik.setFieldValue('location', val.description);
+                                } else {
+                                    formik.setFieldValue('location', '');
+                                }
+                            }}
+                            value={value || formik.values.location}
+                            onInputChange={(e, value) => {
+                                setValue(value);
+                            }}
+                            renderInput={(params) => (
+                                <TextField
+                                    {...params}
+                                    disabled={!ready}
+                                    error={formik.touched.location && Boolean(formik.errors.location)}
+                                    helperText={formik.touched.location && formik.errors.location}
+                                    placeholder="e.g Kampala, Uganda"
+                                    InputProps={{
+                                        ...params.InputProps,
+                                        endAdornment: (
+                                            <>
+                                                {ready ? null : <CircularProgress color="inherit" size={20} />}
+                                                {params.InputProps.endAdornment}
+                                            </>
+                                        )
+                                    }}
+                                />
+                            )}
+                            required
                         />
                     </Grid>
 

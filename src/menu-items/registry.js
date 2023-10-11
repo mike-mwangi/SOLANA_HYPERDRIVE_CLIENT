@@ -75,7 +75,7 @@ const registry = {
                     title: <FormattedMessage id="Add Project" defaultMessage="Add Project" />,
                     type: 'item',
                     icon: icons.IconHeartHandshake,
-                    url: '/registry/projects/add',
+                    url: '/projects/add',
                     breadcrumbs: false,
                     external: true
                 },
@@ -83,7 +83,7 @@ const registry = {
                     id: 'project_list',
                     title: <FormattedMessage id="Projects List" defaultMessage="Projects List" />,
                     type: 'item',
-                    url: '/registry/projects/list',
+                    url: '/projects/list',
                     icon: icons.IconClipboardList,
                     breadcrumbs: false,
                     external: true
