@@ -59,9 +59,9 @@ const Landing = () => {
             </SectionWrapper>
 
             {/* 5. people section */}
-            <SectionWrapper sx={{ bgcolor: theme.palette.mode === 'dark' ? 'dark.dark' : 'background.default' }}>
+            {/* <SectionWrapper sx={{ bgcolor: theme.palette.mode === 'dark' ? 'dark.dark' : 'background.default' }}>
                 <PeopleSection />
-            </SectionWrapper>
+            </SectionWrapper> */}
 
             {/* 6. startup section */}
             <SectionWrapper sx={{ py: 0 }}>

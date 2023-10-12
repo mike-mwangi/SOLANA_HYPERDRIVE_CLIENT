@@ -62,13 +62,12 @@ const FeatureSection = () => (
                 <Grid container spacing={1.5}>
                     <Grid item xs={12}>
                         <Typography variant="h2" sx={{ fontSize: { xs: '1.5rem', sm: '2.125rem' } }}>
-                            What does Berry offer?
+                            Who We Serve
                         </Typography>
                     </Grid>
                     <Grid item xs={12}>
                         <Typography variant="body2" sx={{ fontSize: '1rem' }}>
-                            Berry is a reliable choice for your admin panel needs, offering a wide range of features to easily manage your
-                            backend panel
+                            Our platform is tailored to meet the unique needs of each of these entities. Here&apos;s a closer look:
                         </Typography>
                     </Grid>
                 </Grid>
@@ -77,43 +76,43 @@ const FeatureSection = () => (
                 <Grid container justifyContent="center" spacing={5} sx={{ '&> .MuiGrid-root > div': { height: '100%' } }}>
                     <Grid item md={4} sm={6}>
                         <OfferCard
-                            title="Beautiful User Interface"
-                            caption="Berry can improve the user experience of your web application by providing a clear and intuitive layout, and consistent look and feel."
+                            title="Carbon Credit Registries"
+                            caption="Unified management for diverse registries. Whether you're in compliance or voluntary markets, seamlessly manage, verify, and trade carbon credits all in one place."
                             image={Offer1}
                         />
                     </Grid>
                     <Grid item md={4} sm={6}>
                         <OfferCard
-                            title="Time and Cost Savings"
-                            caption="Berry can save developers time and effort by providing a pre-built user interface, allowing them to focus on other aspects of the project."
+                            title="Environmental Agencies"
+                            caption="Real-time monitoring made easy. Access transparent, verifiable carbon credit records to enforce environmental standards effortlessly."
                             image={Offer2}
                         />
                     </Grid>
                     <Grid item md={4} sm={6}>
                         <OfferCard
-                            title="Reduce Development Complexity"
-                            caption="Berry simplifies admin panel development with easy theme setup and clear code with flexible layouts options."
+                            title="Governments"
+                            caption="Strengthen emission initiatives. Oversee both compliance and voluntary markets, ensuring industries align with national eco-goals."
                             image={Offer3}
                         />
                     </Grid>
                     <Grid item md={4} sm={6}>
                         <OfferCard
-                            title="Improved Scalability"
-                            caption="Berry uses scalable technologies and resources to ensure that your admin panel remains efficient and effective as your needs evolve."
+                            title="Businesses and Corporations"
+                            caption="Meet your green goals. Whether adhering to strict regulations or voluntarily pledging for a better future, acquire and trade carbon credits smoothly."
                             image={Offer4}
                         />
                     </Grid>
                     <Grid item md={4} sm={6}>
                         <OfferCard
-                            title=" Well-Documented and Supported"
-                            caption="With a range of resources including user guides, tutorials, and FAQs to help users understand and effectively use the Berry."
+                            title="Investors"
+                            caption="Invest with clarity. Channel your resources into genuine emission reduction projects in both compliance and voluntary markets."
                             image={Offer5}
                         />
                     </Grid>
                     <Grid item md={4} sm={6}>
                         <OfferCard
-                            title="Performance Centric"
-                            caption="Berry is a performance-centric dashboard template that is designed to deliver optimal performance for your admin panel."
+                            title="Technology and Service Providers"
+                            caption="Collaborate for a greener future. Integrate your tech solutions and be part of a revolutionary platform driving global sustainability."
                             image={Offer6}
                         />
                     </Grid>
