@@ -76,7 +76,7 @@ const CardSection = () => {
                                             color: theme.palette.mode === 'dark' ? theme.palette.dark[900] : theme.palette.grey[900]
                                         }}
                                     >
-                                        150+
+                                        10+
                                     </Typography>
                                     <Typography
                                         variant="h5"
@@ -87,7 +87,7 @@ const CardSection = () => {
                                             color: theme.palette.mode === 'dark' ? theme.palette.dark[900] : theme.palette.grey[900]
                                         }}
                                     >
-                                        Components
+                                        Registries
                                     </Typography>
                                 </Stack>
                             </Stack>
@@ -121,7 +121,7 @@ const CardSection = () => {
                                             color: theme.palette.mode === 'dark' ? theme.palette.dark[900] : theme.palette.grey[900]
                                         }}
                                     >
-                                        8+
+                                        30+
                                     </Typography>
                                     <Typography
                                         variant="h5"
@@ -132,7 +132,7 @@ const CardSection = () => {
                                             color: theme.palette.mode === 'dark' ? theme.palette.dark[900] : theme.palette.grey[900]
                                         }}
                                     >
-                                        Application
+                                        Developers
                                     </Typography>
                                 </Stack>
                             </Stack>
@@ -165,7 +165,7 @@ const CardSection = () => {
                                             color: theme.palette.mode === 'dark' ? theme.palette.dark[900] : theme.palette.grey[900]
                                         }}
                                     >
-                                        100+
+                                        60000+
                                     </Typography>
                                     <Typography
                                         variant="h5"
@@ -175,7 +175,7 @@ const CardSection = () => {
                                             color: theme.palette.mode === 'dark' ? theme.palette.dark[900] : theme.palette.grey[900]
                                         }}
                                     >
-                                        Pages
+                                        Carbon Credits
                                     </Typography>
                                 </Stack>
                             </Stack>

@@ -9,8 +9,8 @@ import AnimateButton from 'ui-component/extended/AnimateButton';
 import { IconCircleCheck } from '@tabler/icons';
 import LayersTwoToneIcon from '@mui/icons-material/LayersTwoTone';
 
-import LayerLeft from 'assets/images/landing/customization-left.png';
-import LayerRight from 'assets/images/landing/customization-right.png';
+import LayerLeft from 'assets/images/landing/questions-landing.svg';
+import LayerRight from 'assets/images/landing/solutions_landing.svg';
 
 // ==============================|| LANDING - CUSTOMIZE ||============================== //
 
@@ -44,7 +44,7 @@ const CustomizeSection = () => {
                     <Grid container spacing={2.5}>
                         <Grid item xs={12}>
                             <Typography variant="h5" sx={{ fontSize: { xs: '1.5rem', sm: '2.125rem' }, mb: 2 }}>
-                                Easy Developer Experience
+                                The Fragmented Carbon Landscape
                             </Typography>
                             <Typography
                                 variant="subtitle2"
@@ -55,50 +55,55 @@ const CustomizeSection = () => {
                                     width: { xs: '100%', sm: '100%', md: 'calc(100% - 20%)' }
                                 }}
                             >
-                                Berry has made it easy for developers of any skill level to use their product.
+                                Amid escalating climate change concerns, the carbon market has emerged as a pivotal mechanism to incentivize
+                                emission reductions. However, its efficacy is significantly stifled by:
                             </Typography>
                         </Grid>
                         <Grid item xs={12}>
-                            <Typography sx={listSX}>
-                                <IconCircleCheck size={20} />A straightforward and simple folder structure.
-                            </Typography>
-                            <Typography sx={listSX}>
-                                <IconCircleCheck size={20} />
-                                Code that is organized in a clear and logical manner.
-                            </Typography>
-                            <Typography sx={listSX}>
-                                <IconCircleCheck size={20} />
-                                Setting up Typography and Color schemes is easy and effortless.
-                            </Typography>
-                            <Typography sx={listSX}>
-                                <IconCircleCheck size={20} />
-                                Multiple layout options that can be easily adjusted.
-                            </Typography>
-                            <Typography sx={listSX}>
-                                <IconCircleCheck size={20} />A theme that can be easily configured on a single page.
-                            </Typography>
-                            {/* <Stack direction="row">
-                                <AnimateButton>
-                                    <Button
-                                        startIcon={<LayersTwoToneIcon />}
-                                        sx={{ boxShadow: 'none', my: 4 }}
-                                        variant="contained"
-                                        component={RouterLink}
-                                        to="/components/autocomplete"
-                                        target="_blank"
-                                    >
-                                        View All Components
-                                    </Button>
-                                </AnimateButton>
-                            </Stack> */}
+                            {[
+                                {
+                                    title: 'Fragmented Registries:',
+                                    description:
+                                        'A patchwork of global registries, each with varied standards, hinders a unified approach to the carbon market, making cross-border verification and trading a complex task.'
+                                },
+                                {
+                                    title: 'Transparency Deficit:',
+                                    description:
+                                        'The absence of a consolidated and transparent database breeds suspicion, diminishing the inclination to participate in the carbon market.'
+                                },
+                                {
+                                    title: 'Verification and Trading Bottlenecks:',
+                                    description:
+                                        "Relying on manual methods, the existing system is slow, error-prone, and struggles to keep up with the market's pace, delaying carbon credit trades and verifications."
+                                },
+                                {
+                                    title: 'Inconsistent Data Reporting:',
+                                    description:
+                                        "The mosaic of data standards complicates verifications, putting the market's credibility and its impact on global emission reductions at risk."
+                                }
+                            ].map((item, idx) => (
+                                <Typography key={idx} sx={listSX}>
+                                    <Grid container alignItems="center">
+                                        <Grid item xs={1}>
+                                            <IconCircleCheck size={20} />
+                                        </Grid>
+                                        <Grid item xs={4}>
+                                            <b>{item.title}</b>
+                                        </Grid>
+                                        <Grid item xs={7}>
+                                            {item.description}
+                                        </Grid>
+                                    </Grid>
+                                </Typography>
+                            ))}
                         </Grid>
                     </Grid>
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <Grid container spacing={2.5}>
                         <Grid item xs={12}>
-                            <Typography variant="h2" sx={{ fontSize: { xs: '1.5rem', sm: '2.125rem' }, mb: 2 }}>
-                                Figma Design System
+                            <Typography variant="h5" sx={{ fontSize: { xs: '1.5rem', sm: '2.125rem' }, mb: 2 }}>
+                                A Unified Tokenization Platform
                             </Typography>
                             <Typography
                                 variant="subtitle2"
@@ -106,46 +111,50 @@ const CustomizeSection = () => {
                                 sx={{
                                     fontSize: '1rem',
                                     zIndex: '99',
-                                    width: { xs: '100%', md: 'calc(100% - 20%)' }
+                                    width: { xs: '100%', sm: '100%', md: 'calc(100% - 20%)' }
                                 }}
                             >
-                                Streamlining the development process and saving you time and effort in the initial design phase.
+                                A novel blockchain-based unified platform for tokenizing carbon credits, designed to amplify the carbon
+                                market&apos;s impact on a global scale.
                             </Typography>
                         </Grid>
                         <Grid item xs={12}>
-                            <Typography sx={listSX}>
-                                <IconCircleCheck size={20} />
-                                Professional Kit for Designer
-                            </Typography>
-                            <Typography sx={listSX}>
-                                <IconCircleCheck size={20} />
-                                Properly Organised Pages
-                            </Typography>
-                            <Typography sx={listSX}>
-                                <IconCircleCheck size={20} />
-                                Dark/Light Design
-                            </Typography>
-                            <Typography sx={listSX}>
-                                <IconCircleCheck size={20} />
-                                *Figma file included only in Plus & Extended Licenses.
-                            </Typography>
-                            <Typography sx={listSX}>
-                                <IconCircleCheck size={20} />A theme that can be easily configured on a single page.
-                            </Typography>
-                            <Stack direction="row">
-                                <AnimateButton>
-                                    <Button
-                                        startIcon={<LayersTwoToneIcon />}
-                                        sx={{ boxShadow: 'none', my: 4 }}
-                                        variant="contained"
-                                        component={Link}
-                                        href="https://www.figma.com/file/2u2TmauA6lanVMYiywzS1o/berry-figma-v3.0?node-id=0%3A1"
-                                        target="_blank"
-                                    >
-                                        Explore Figma
-                                    </Button>
-                                </AnimateButton>
-                            </Stack>
+                            {[
+                                {
+                                    title: 'Tokenization:',
+                                    description:
+                                        'With robust Solana-based token standards, we transform carbon credits into traceable, unique digital tokens ensuring clear ownership and transaction history.'
+                                },
+                                {
+                                    title: 'Blockchain Integration:',
+                                    description:
+                                        'Our platform guarantees every transaction is traceable and irreversible, instilling transparency and trust.'
+                                },
+                                {
+                                    title: 'Smart Contracts:',
+                                    description:
+                                        'Automated verification and transactions through smart contracts enhance market efficiency and reduce errors.'
+                                },
+                                {
+                                    title: 'Global Standardization:',
+                                    description:
+                                        'We introduce a universal standard for carbon credit tokenization, ensuring global consistency and ease of verification.'
+                                }
+                            ].map((item, idx) => (
+                                <Typography key={idx} sx={listSX}>
+                                    <Grid container alignItems="center">
+                                        <Grid item xs={1}>
+                                            <IconCircleCheck size={20} />
+                                        </Grid>
+                                        <Grid item xs={4}>
+                                            <b>{item.title}</b>
+                                        </Grid>
+                                        <Grid item xs={7}>
+                                            {item.description}
+                                        </Grid>
+                                    </Grid>
+                                </Typography>
+                            ))}
                         </Grid>
                     </Grid>
                 </Grid>
