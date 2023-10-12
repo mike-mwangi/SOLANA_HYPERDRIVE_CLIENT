@@ -61,6 +61,7 @@ export default function ContactPersonForm({ handleNext, handleBack, setErrorInde
             <form onSubmit={formik.handleSubmit} encType="multipart/form-data">
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
+                        <InputLabel>Verification Standard</InputLabel>
                         <Select
                             fullWidth
                             id="verificationStandard"
@@ -77,6 +78,7 @@ export default function ContactPersonForm({ handleNext, handleBack, setErrorInde
                     </Grid>
 
                     <Grid item xs={12}>
+                        <InputLabel>Verification Status</InputLabel>
                         <Select
                             fullWidth
                             id="verificationStatus"
@@ -113,7 +115,7 @@ export default function ContactPersonForm({ handleNext, handleBack, setErrorInde
                                     variant="contained"
                                     type="submit"
                                     sx={{ my: 3, ml: 1 }}
-                                    onClick={() => setErrorIndex(5)}
+                                    onClick={() => setErrorIndex(1)}
                                     size="large"
                                 >
                                     Save and Continue

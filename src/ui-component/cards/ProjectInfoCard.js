@@ -80,7 +80,7 @@ const ProjectInfoCard = ({ primary, secondary, bgcolor, isLoading, iconPrimary }
                                         </Typography>
                                     }
                                     secondary={
-                                        <Typography variant="caption" sx={{ color: `${theme.palette.primary.main}`, mt: 0.25 }}>
+                                        <Typography variant="caption" sx={{ color: `${theme.palette.primary.main}`, mt: 0.25 }} noWrap>
                                             {secondary}
                                         </Typography>
                                     }

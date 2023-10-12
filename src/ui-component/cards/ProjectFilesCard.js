@@ -1,26 +1,18 @@
 import { Grid, Typography } from '@mui/material';
 import { Stack, useTheme } from '@mui/system';
-import useAuth from 'hooks/useAuth';
+import { useSelector } from 'store';
 import FileDownload from 'ui-component/FileDownload';
 import SubCard from './SubCard';
 
-const ProjectFilesCard = ({ project }) => {
+const ProjectFilesCard = () => {
     const theme = useTheme();
+    const project = useSelector((state) => state.project.project);
     const reviewFields = [
-        { label: 'Licenses and Permits', value: project?.thematicDetails?.licensesAndPermits || '', type: 'file' },
-        { label: 'Environmental Impact Assessment', value: project?.thematicDetails?.environmentalImpactAssessment || '', type: 'file' },
-        { label: 'Land Lease Agreements', value: project?.thematicDetails?.landLeaseAgreements || '', type: 'file' },
-        { label: 'Technical Feasibility Report', value: project?.thematicDetails?.technicalFeasibilityReport || '', type: 'file' },
-        { label: 'Company Registration Details', value: project?.companyRegistrationDetails || '', type: 'file' },
-        { label: 'Company Pitch Deck', value: project?.companyPitchDeck || '', type: 'file' },
-        { label: 'ESIA Report', value: project?.ESIAReport || '', type: 'file' },
-        { label: 'Implementation Agreement', value: project?.implementationAgreement || '', type: 'file' },
-        { label: 'Financial Feasibility Report', value: project?.financialFeasibilityReport || '', type: 'file' },
-        { label: 'Project Financial Model', value: project?.projectFinancialModel || '', type: 'file' },
-        { label: 'Audited Financials', value: project?.auditedFinancials || '', type: 'file' }
+        { label: 'Verification Document', value: project?.verificationDocument || '', type: 'file' },
+        { label: 'Images', value: project?.images || '', type: 'file' },
+        { label: 'Additional Documents', value: project?.additionalDocuments || '', type: 'file' }
     ];
     const fields = reviewFields.filter((field) => field.value);
-    const { user } = useAuth();
     return (
         <Grid container spacing={1}>
             {fields.length === 0 && (
@@ -35,13 +27,9 @@ const ProjectFilesCard = ({ project }) => {
 
             {fields.map((field, index) => (
                 <Grid item direction="column" spacing={1} xs={12}>
-                    <SubCard contentSX={{ transition: 'background-color 0.15s ease-out' }} sx={{ bgcolor: theme.palette.grey[100] }}>
-                        <Stack direction="row" justifyContent="space-between">
-                            <Typography variant="h4">{field.label}</Typography>
-                            {((user?.role !== 'investor' && user?.role !== 'technicalAssistant') ||
-                                project?.requestStatus === 'approved') && <FileDownload field={field} label={field.label} />}
-                        </Stack>
-                    </SubCard>
+                    <Stack direction="row" justifyContent="space-between">
+                        <FileDownload field={field.value} label={field.label} />
+                    </Stack>
                 </Grid>
             ))}
         </Grid>
