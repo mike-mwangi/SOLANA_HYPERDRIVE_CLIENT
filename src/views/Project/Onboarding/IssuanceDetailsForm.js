@@ -14,9 +14,14 @@ import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'store';
 import { patchProject } from 'store/slices/project';
 import InputLabel from 'ui-component/extended/Form/InputLabel';
+import * as yup from 'yup';
 
 // ==============================|| FORM WIZARD - VALIDATION  ||============================== //
 
+const validationSchema = yup.object({
+    totalCreditsIssued: yup.number().required('Total Credits Issued is required'),
+    creditIssuanceDate: yup.date().required('Credit Issuance Date is required')
+});
 export default function DocumentationForm({ handleNext, handleBack, setErrorIndex }) {
     const dispatch = useDispatch();
     const project = useSelector((state) => state.project.project);
@@ -42,6 +47,7 @@ export default function DocumentationForm({ handleNext, handleBack, setErrorInde
             totalCreditsIssued: project?.totalCreditsIssued,
             creditIssuanceDate: project?.creditIssuanceDate
         },
+        validationSchema,
         onSubmit: (values) => {
             setSubmitted(true);
             dispatch(patchProject({ id: project._id, data: { ...values, step: 3 } }));
@@ -82,6 +88,7 @@ export default function DocumentationForm({ handleNext, handleBack, setErrorInde
                                 }}
                                 renderInput={(params) => (
                                     <TextField
+                                        required
                                         id="creditIssuanceDate"
                                         fullWidth
                                         {...params}
@@ -102,7 +109,7 @@ export default function DocumentationForm({ handleNext, handleBack, setErrorInde
                                     variant="contained"
                                     type="submit"
                                     sx={{ my: 3, ml: 1 }}
-                                    onClick={() => setErrorIndex(5)}
+                                    onClick={() => setErrorIndex(2)}
                                     size="large"
                                 >
                                     Save and Continue

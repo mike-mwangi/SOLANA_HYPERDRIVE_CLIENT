@@ -69,6 +69,7 @@ export default function ContactsForm({ handleNext, handleBack, setErrorIndex }) 
                             onChange={formik.handleChange}
                             error={formik.touched.developerFirstName && Boolean(formik.errors.developerFirstName)}
                             helperText={formik.touched.developerFirstName && formik.errors.developerFirstName}
+                            required
                         />
                     </Grid>
                     <Grid item xs={12}>
@@ -81,6 +82,7 @@ export default function ContactsForm({ handleNext, handleBack, setErrorIndex }) 
                             onChange={formik.handleChange}
                             error={formik.touched.developerLastName && Boolean(formik.errors.developerLastName)}
                             helperText={formik.touched.developerLastName && formik.errors.developerLastName}
+                            required
                         />
                     </Grid>
 
@@ -94,6 +96,7 @@ export default function ContactsForm({ handleNext, handleBack, setErrorIndex }) 
                             onChange={formik.handleChange}
                             error={formik.touched.email && Boolean(formik.errors.email)}
                             helperText={formik.touched.email && formik.errors.email}
+                            required
                         />
                     </Grid>
 
@@ -107,6 +110,7 @@ export default function ContactsForm({ handleNext, handleBack, setErrorIndex }) 
                             onChange={formik.handleChange}
                             error={formik.touched.phoneNumber && Boolean(formik.errors.phoneNumber)}
                             helperText={formik.touched.phoneNumber && formik.errors.phoneNumber}
+                            required
                         />
                     </Grid>
 
@@ -120,6 +124,7 @@ export default function ContactsForm({ handleNext, handleBack, setErrorIndex }) 
                             onChange={formik.handleChange}
                             error={formik.touched.address && Boolean(formik.errors.address)}
                             helperText={formik.touched.address && formik.errors.address}
+                            required
                         />
                     </Grid>
 
@@ -133,7 +138,7 @@ export default function ContactsForm({ handleNext, handleBack, setErrorIndex }) 
                                     variant="contained"
                                     type="submit"
                                     sx={{ my: 3, ml: 1 }}
-                                    onClick={() => setErrorIndex(5)}
+                                    onClick={() => setErrorIndex(3)}
                                     size="large"
                                 >
                                     Save and Continue

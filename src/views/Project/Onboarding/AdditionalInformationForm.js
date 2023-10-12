@@ -107,7 +107,7 @@ export default function AdditionalInformation({ handleNext, handleBack, setError
                                     variant="contained"
                                     type="submit"
                                     sx={{ my: 3, ml: 1 }}
-                                    onClick={() => setErrorIndex(5)}
+                                    onClick={() => setErrorIndex(4)}
                                     size="large"
                                 >
                                     Save and Continue

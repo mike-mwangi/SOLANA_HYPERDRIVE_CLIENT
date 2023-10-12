@@ -5,7 +5,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
@@ -20,10 +19,10 @@ import Loader from 'ui-component/Loader';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
+import { REGISTRY_TYPES } from 'constant';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'store';
 import { patchRegistry, postRegistry } from 'store/slices/registry';
-import { REGISTRY_TYPES } from 'constant';
 import ImageReviewCard from 'ui-component/cards/ImageReviewCard';
 
 // async function getLocationData(location) {
@@ -162,17 +161,17 @@ will be used for identification and reference throughout the platform."
                     </Grid>
 
                     <Grid item xs={12}>
+                        <InputLabel>Upload your registry logo</InputLabel>
                         <FileUpload
                             label="Upload your registry logo"
                             name="logo"
                             document={registry}
                             formik={formik}
-                            multiple
                             acceptedFileTypes={{
                                 'image/*': ['.png', '.jpeg', '.jpg']
                             }}
                             maxFileSize={7340032}
-                            maxFiles={5}
+                            maxFiles={1}
                         />
                     </Grid>
                     {formik.values.registryImages?.length > 0 && (

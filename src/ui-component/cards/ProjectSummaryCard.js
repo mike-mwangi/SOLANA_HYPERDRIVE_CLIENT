@@ -71,52 +71,6 @@ const ProjectSummaryCard = ({ project }) => {
                     </Grid>
                 </Grid>
             </Grid>
-            {/* <Grid item xs={12} sm={6} sx={blockSX}>
-                <Grid container alignItems="center" spacing={1} justifyContent={matchDownXs ? 'space-between' : 'start'}>
-                    <Grid item>
-                        <AssignmentOutlinedIcon sx={{ color: theme.palette.secondary.main }} fontSize="large" />
-                    </Grid>
-                    <Grid item sx={{ maxWidth: '60%' }}>
-                        <Typography variant="h5" align="start">
-                            Project Type
-                        </Typography>
-                        <Typography variant="subtitle2" align="start">
-                            {project?.thematicGroup}
-                        </Typography>
-                    </Grid>
-                </Grid>
-            </Grid>
-
-            <Grid item xs={12} sm={6} sx={blockSX}>
-                <Grid container alignItems="center" spacing={1} justifyContent={matchDownXs ? 'space-between' : 'start'}>
-                    <Grid item>
-                        <RocketLaunchOutlinedIcon sx={{ color: theme.palette.secondary.main }} fontSize="large" />
-                    </Grid>
-                    <Grid item sx={{ maxWidth: '60%' }}>
-                        <Typography variant="h5" align="start">
-                            Project Stage
-                        </Typography>
-                        <Typography variant="subtitle2" align="start">
-                            Design
-                        </Typography>
-                    </Grid>
-                </Grid>
-            </Grid>
-            <Grid item xs={12} sm={6} sx={blockSX}>
-                <Grid container alignItems="center" spacing={1} justifyContent={matchDownXs ? 'space-between' : 'start'}>
-                    <Grid item>
-                        <CalendarMonthOutlinedIcon sx={{ color: theme.palette.secondary.main }} fontSize="large" />
-                    </Grid>
-                    <Grid item sx={{ maxWidth: '60%' }}>
-                        <Typography variant="h5" align="start">
-                            Project Start Date
-                        </Typography>
-                        <Typography variant="subtitle2" align="start">
-                            {project?.startDate}
-                        </Typography>
-                    </Grid>
-                </Grid>
-            </Grid> */}
         </Grid>
     );
 };
