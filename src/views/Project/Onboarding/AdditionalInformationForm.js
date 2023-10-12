@@ -13,7 +13,8 @@ import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'store';
 import { patchProject } from 'store/slices/project';
 import FileUpload from 'ui-component/FileUpload';
-import { FileDownload } from '@mui/icons-material';
+import FileDownload from 'ui-component/FileDownload';
+import InputLabel from 'ui-component/extended/Form/InputLabel';
 
 // ==============================|| FORM WIZARD - VALIDATION  ||============================== //
 
@@ -73,24 +74,27 @@ export default function AdditionalInformation({ handleNext, handleBack, setError
                     </Grid>
 
                     <Grid item xs={12}>
+                        <InputLabel>Upload Images</InputLabel>
                         <FileUpload
                             name="images"
                             formik={formik}
-                            document={project?.images}
+                            document={project}
                             acceptedFileTypes={{ 'image/*': ['jpg', 'jpeg', 'png'] }}
                             multiple
                         />
-                        <FileDownload field={project?.image} label="Image" />
+                        <FileDownload field={project?.images} label="Images" />
                     </Grid>
 
                     <Grid item xs={12}>
+                        <InputLabel>Upload Additional Documents</InputLabel>
                         <FileUpload
                             name="additionalDocuments"
                             formik={formik}
-                            document={project?.additionalDocuments}
+                            document={project}
                             acceptedFileTypes={['application/pdf']}
                             multiple
                         />
+                        <FileDownload field={project?.additionalDocuments} label="Additional Documents" />
                     </Grid>
 
                     <Grid item xs={12}>

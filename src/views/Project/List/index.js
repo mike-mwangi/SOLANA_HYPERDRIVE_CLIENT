@@ -74,9 +74,9 @@ const ProjectsList = () => {
                 {projects.map((project, index) => (
                     <Grid key={index} item xs={12} md={6}>
                         {project.stage === 'draft' ? (
-                            <OwnerProjectCard project={project} link={`/projects/add/${project._id}`} />
+                            <OwnerProjectCard project={project} link={`/projects/edit/${project._id}`} />
                         ) : (
-                            <OwnerProjectCard project={project} link={`/projects/${project._id}`} />
+                            <OwnerProjectCard project={project} link={`/projects/view/${project._id}`} />
                         )}
                     </Grid>
                 ))}

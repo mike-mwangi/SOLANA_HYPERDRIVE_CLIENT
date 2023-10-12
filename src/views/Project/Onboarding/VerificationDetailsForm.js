@@ -53,7 +53,7 @@ export default function ContactPersonForm({ handleNext, handleBack, setErrorInde
     return (
         <>
             <Typography variant="h3" align="center" gutterBottom sx={{ mb: 2 }}>
-                Carbon Credit Details
+                Verification Details
             </Typography>
             <Typography variant="h4" align="center" gutterBottom sx={{ mb: 2 }}>
                 Please fill in the details below

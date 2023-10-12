@@ -122,6 +122,7 @@ const JWTRegister = ({ ...others }) => {
                         } else {
                             cleanedPhoneNumber = `+${cleanedPhoneNumber}`;
                         }
+
                         await register(
                             values.email,
                             values.password,

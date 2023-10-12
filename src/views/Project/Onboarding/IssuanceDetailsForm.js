@@ -5,13 +5,15 @@ import { Button, Grid, Stack, TextField, Typography } from '@mui/material';
 // import InputLabel,CloudUploadIcon, CardMedia, CircularProgress,
 // project imports
 import AnimateButton from 'ui-component/extended/AnimateButton';
-
+import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 // third-party
 import { useFormik } from 'formik';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'store';
 import { patchProject } from 'store/slices/project';
+import InputLabel from 'ui-component/extended/Form/InputLabel';
 
 // ==============================|| FORM WIZARD - VALIDATION  ||============================== //
 
@@ -49,7 +51,7 @@ export default function DocumentationForm({ handleNext, handleBack, setErrorInde
     return (
         <>
             <Typography variant="h3" align="center" gutterBottom sx={{ mb: 2 }}>
-                Project Documents
+                Issuance Details
             </Typography>
             <Typography variant="h4" align="center" gutterBottom sx={{ mb: 2 }}>
                 Please fill in the details below
@@ -57,12 +59,12 @@ export default function DocumentationForm({ handleNext, handleBack, setErrorInde
             <form onSubmit={formik.handleSubmit} encType="multipart/form-data">
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
+                        <InputLabel>Total Credits Issued</InputLabel>
                         <TextField
                             fullWidth
                             type="number"
                             id="totalCreditsIssued"
                             name="totalCreditsIssued"
-                            label="Total Credits Issued"
                             value={formik.values.totalCreditsIssued}
                             onChange={formik.handleChange}
                             error={formik.touched.totalCreditsIssued && Boolean(formik.errors.totalCreditsIssued)}
@@ -71,20 +73,25 @@ export default function DocumentationForm({ handleNext, handleBack, setErrorInde
                     </Grid>
 
                     <Grid item xs={12}>
-                        <TextField
-                            fullWidth
-                            type="date"
-                            id="creditIssuanceDate"
-                            name="creditIssuanceDate"
-                            label="Credit Issuance Date"
-                            value={formik.values.creditIssuanceDate}
-                            onChange={formik.handleChange}
-                            error={formik.touched.creditIssuanceDate && Boolean(formik.errors.creditIssuanceDate)}
-                            helperText={formik.touched.creditIssuanceDate && formik.errors.creditIssuanceDate}
-                            InputLabelProps={{ shrink: true }}
-                        />
+                        <InputLabel>Credit Issuance Date</InputLabel>
+                        <LocalizationProvider dateAdapter={AdapterDateFns}>
+                            <DatePicker
+                                value={formik.values.creditIssuanceDate}
+                                onChange={(newValue) => {
+                                    formik.setFieldValue('creditIssuanceDate', newValue);
+                                }}
+                                renderInput={(params) => (
+                                    <TextField
+                                        id="creditIssuanceDate"
+                                        fullWidth
+                                        {...params}
+                                        error={formik.touched.creditIssuanceDate && Boolean(formik.errors.creditIssuanceDate)}
+                                        helperText={formik.touched.creditIssuanceDate && formik.errors.creditIssuanceDate}
+                                    />
+                                )}
+                            />
+                        </LocalizationProvider>
                     </Grid>
-
                     <Grid item xs={12}>
                         <Stack direction="row" justifyContent="space-between">
                             <Button onClick={handleBack} sx={{ my: 3, ml: 1 }} size="large" variant="outlined">

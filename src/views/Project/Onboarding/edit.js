@@ -20,6 +20,7 @@ import VerificationDetailsForm from './VerificationDetailsForm';
 import IssuanceDetailsForm from './IssuanceDetailsForm';
 import ContactsForm from './ContactsForm';
 import AdditionalInformationForm from './AdditionalInformationForm';
+import Review from './Review';
 
 const getStepContent = (step, handleNext, handleBack, setErrorIndex) => {
     switch (step) {
@@ -33,6 +34,8 @@ const getStepContent = (step, handleNext, handleBack, setErrorIndex) => {
             return <ContactsForm handleNext={handleNext} handleBack={handleBack} setErrorIndex={setErrorIndex} />;
         case 4:
             return <AdditionalInformationForm handleNext={handleNext} handleBack={handleBack} setErrorIndex={setErrorIndex} />;
+        case 5:
+            return <Review />;
         default:
             throw new Error('Unknown step');
     }
@@ -52,7 +55,8 @@ const onBoardingPage = () => {
         'Verification Information',
         'Issuance Information',
         'Project Contacts',
-        'Additional Information'
+        'Additional Information',
+        'Review & Submit'
     ]);
     const [errorIndex, setErrorIndex] = useState(null);
     const [loading, setLoading] = useState(true);

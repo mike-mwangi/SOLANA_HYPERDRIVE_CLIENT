@@ -37,7 +37,8 @@ export default function ContactsForm({ handleNext, handleBack, setErrorIndex }) 
 
     const formik = useFormik({
         initialValues: {
-            developer: project?.developer,
+            developerFirstName: project?.developerFirstName,
+            developerLastName: project?.developerLastName,
             email: project?.email,
             phoneNumber: project?.phoneNumber,
             address: project?.address
@@ -61,13 +62,25 @@ export default function ContactsForm({ handleNext, handleBack, setErrorIndex }) 
                     <Grid item xs={12}>
                         <TextField
                             fullWidth
-                            id="developer"
-                            name="developer"
-                            label="Project Developer"
-                            value={formik.values.developer}
+                            id="developerFirstName"
+                            name="developerFirstName"
+                            label="Project Developer First Name"
+                            value={formik.values.developerFirstName}
                             onChange={formik.handleChange}
-                            error={formik.touched.developer && Boolean(formik.errors.developer)}
-                            helperText={formik.touched.developer && formik.errors.developer}
+                            error={formik.touched.developerFirstName && Boolean(formik.errors.developerFirstName)}
+                            helperText={formik.touched.developerFirstName && formik.errors.developerFirstName}
+                        />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <TextField
+                            fullWidth
+                            id="developerLastName"
+                            name="developerLastName"
+                            label="Project Developer Last Name"
+                            value={formik.values.developerLastName}
+                            onChange={formik.handleChange}
+                            error={formik.touched.developerLastName && Boolean(formik.errors.developerLastName)}
+                            helperText={formik.touched.developerLastName && formik.errors.developerLastName}
                         />
                     </Grid>
 

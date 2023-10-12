@@ -211,7 +211,7 @@ const ProjectCard = ({ project, link }) => {
                                             <Stack direction="row">
                                                 <LocationOnOutlinedIcon sx={{ color: theme.palette.grey[500] }} />
                                                 <Typography variant="body2">
-                                                    {project?.location?.address && getNChars(project?.location?.address, 30)}
+                                                    {project?.location && getNChars(project?.location, 30)}
                                                 </Typography>
                                             </Stack>
                                         </Stack>
@@ -230,10 +230,10 @@ const ProjectCard = ({ project, link }) => {
                                             <Wrapper fullWidth>
                                                 <Stack direction="column">
                                                     <Typography variant="h5" align="center" noWrap>
-                                                        ${project?.totalProjectCost ?? `NA`}
+                                                        {project?.totalCreditsIssued ?? `NA`}
                                                     </Typography>
                                                     <Typography variant="caption" align="center" noWrap>
-                                                        Deal Size
+                                                        Total Credits Issued
                                                     </Typography>
                                                 </Stack>
                                             </Wrapper>
@@ -242,10 +242,10 @@ const ProjectCard = ({ project, link }) => {
                                             <Wrapper fullWidth>
                                                 <Stack direction="column">
                                                     <Typography variant="h5" align="center">
-                                                        {project?.dealType ?? `NA`}
+                                                        {project?.type ?? `NA`}
                                                     </Typography>
                                                     <Typography variant="caption" align="center" noWrap>
-                                                        Deal Type
+                                                        Project Type
                                                     </Typography>
                                                 </Stack>
                                             </Wrapper>
@@ -254,27 +254,15 @@ const ProjectCard = ({ project, link }) => {
                                             <Wrapper fullWidth>
                                                 <Stack direction="column">
                                                     <Typography variant="h5" align="center">
-                                                        {project?.fundingType ?? `NA`}
+                                                        {project?.registry?.profile?.name ?? `NA`}
                                                     </Typography>
                                                     <Typography variant="caption" align="center">
-                                                        {project?.dealType ? `${project?.dealType} type` : 'NA'}
+                                                        Registry
                                                     </Typography>
                                                 </Stack>
                                             </Wrapper>
                                         </Grid>
                                     </Grid>
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <MainWrapper fullWidth>
-                                        <Stack direction="column">
-                                            <Typography variant="h5" align="center" sx={{ fontWeight: 'bold' }}>
-                                                {project?.thematicGroup ?? `NA`}
-                                            </Typography>
-                                            <Typography variant="body1" align="center">
-                                                Thematic Area
-                                            </Typography>
-                                        </Stack>
-                                    </MainWrapper>
                                 </Grid>
                                 {/* <Grid item xs={12}>
                             <Stack

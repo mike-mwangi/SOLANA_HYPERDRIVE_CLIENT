@@ -28,7 +28,7 @@ const onBoardingPage = () => {
         'Issuance Information',
         'Project Contacts',
         'Additional Information',
-        'Control and Compliance'
+        'Review & Submit'
     ]);
     const [activeStep, setActiveStep] = React.useState(0);
     const [errorIndex, setErrorIndex] = React.useState(null);

@@ -41,7 +41,6 @@ const validationSchema = yup.object({
     type: yup.string('Select project type').required('Project type is required'),
     description: yup
         .string('Enter project description')
-        .min(100, 'Description should be at least 100 characters long')
         .max(2000, 'Description should not exceed 2000 characters')
         .required('Project description is required')
 });
@@ -69,7 +68,7 @@ export default function ProjectDetailForm({ handleNext, setErrorIndex }) {
                     // patch the project
                     handleNext();
                 } else {
-                    history(`/project/edit/${project._id}`);
+                    history(`/projects/edit/${project._id}`);
                 }
             }
         }
@@ -111,11 +110,12 @@ export default function ProjectDetailForm({ handleNext, setErrorIndex }) {
             <form onSubmit={formik.handleSubmit}>
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
+                        <InputLabel>What is the name of your project ?</InputLabel>
+
                         <TextField
                             fullWidth
                             id="name"
                             name="name"
-                            label="Project Name"
                             value={formik.values.name}
                             onChange={formik.handleChange}
                             error={formik.touched.name && Boolean(formik.errors.name)}
@@ -124,6 +124,7 @@ export default function ProjectDetailForm({ handleNext, setErrorIndex }) {
                     </Grid>
 
                     <Grid item xs={12}>
+                        <InputLabel>What type of project is it ?</InputLabel>
                         <Select
                             fullWidth
                             id="type"
@@ -141,13 +142,13 @@ export default function ProjectDetailForm({ handleNext, setErrorIndex }) {
                     </Grid>
 
                     <Grid item xs={12}>
+                        <InputLabel> Describe the project. </InputLabel>
                         <TextField
                             fullWidth
                             multiline
                             rows={4}
                             id="description"
                             name="description"
-                            label="Project Description"
                             value={formik.values.description}
                             onChange={formik.handleChange}
                             error={formik.touched.description && Boolean(formik.errors.description)}
@@ -155,7 +156,7 @@ export default function ProjectDetailForm({ handleNext, setErrorIndex }) {
                         />
                     </Grid>
 
-                    <Grid item xs={12} md={6}>
+                    <Grid item xs={12}>
                         <InputLabel id="location" helperText="Enter your Exact location or nearest Landmark">
                             Where is your project located ?
                         </InputLabel>
