@@ -10,6 +10,7 @@ import MinimalLayout from 'layout/MinimalLayout';
 
 const PagesLanding = Loadable(lazy(() => import('views/pages/landing')));
 const Projects = Loadable(lazy(() => import('views/pages/landing/projectList')));
+const Registry = Loadable(lazy(() => import('views/pages/registry')));
 
 // ==============================|| ROUTING RENDER ||============================== //
 
@@ -23,6 +24,10 @@ export default function ThemeRoutes() {
                     <Projects />
                 </MinimalLayout>
             )
+        },
+        {
+            path: '/registries',
+            element: <Registry />
         },
         LoginRoutes,
         AuthenticationRotes,

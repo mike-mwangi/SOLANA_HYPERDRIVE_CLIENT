@@ -71,10 +71,12 @@ const AppBar = ({ ...others }) => {
                 <Container>
                     <Toolbar sx={{ py: 2.5, px: `0 !important` }}>
                         <Typography component="div" sx={{ flexGrow: 1, textAlign: 'left' }}>
-                            <Logo />
+                            <RouterLink to="/">
+                                <Logo />
+                            </RouterLink>
                         </Typography>
                         <Stack direction="row" sx={{ display: { xs: 'none', sm: 'block' } }} spacing={{ xs: 1.5, md: 2.5 }}>
-                            <Button color="inherit" component={Link} href="#">
+                            <Button color="inherit" component={Link} href="/registries">
                                 Registries
                             </Button>
                             <Button color="inherit" component={Link} href="/projects">

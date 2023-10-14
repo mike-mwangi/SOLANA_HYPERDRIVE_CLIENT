@@ -135,7 +135,7 @@ const HeaderSection = () => {
                                         </AnimateButton>
                                     </Grid>
                                     <Grid item>
-                                        <Button component={Link} href="#" size="large">
+                                        <Button component={Link} href="/registries" size="large">
                                             Registries
                                         </Button>
                                     </Grid>
