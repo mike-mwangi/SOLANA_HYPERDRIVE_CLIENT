@@ -48,10 +48,10 @@ const ProjectsList = () => {
     const { projects } = useSelector((state) => state.project);
     const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
     const matchDownMD = useMediaQuery(theme.breakpoints.down('lg'));
-
     const projectStatus = useSelector((state) => state.project.status);
 
     useEffect(() => {
+        console.log('here');
         dispatch(getPublicProjects());
     }, []);
 
