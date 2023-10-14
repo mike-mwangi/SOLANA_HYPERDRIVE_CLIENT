@@ -75,6 +75,10 @@ export const getProjects = createAsyncThunk('project/getProjects', async () => {
     const response = await axios.get('/project');
     return response.data;
 });
+export const getPublicProjects = createAsyncThunk('project/getPublicProjects', async () => {
+    const response = await axios.get('/project/public');
+    return response.data;
+});
 
 const slice = createSlice({
     name: 'project',
@@ -95,7 +99,10 @@ const slice = createSlice({
             .addCase(getProject.rejected, handleRejected)
             .addCase(getProjects.pending, handlePending)
             .addCase(getProjects.fulfilled, handleFulfilledProjects)
-            .addCase(getProjects.rejected, handleRejected);
+            .addCase(getProjects.rejected, handleRejected)
+            .addCase(getPublicProjects.pending, handlePending)
+            .addCase(getPublicProjects.fulfilled, handleFulfilledProjects)
+            .addCase(getPublicProjects.rejected, handleRejected);
     }
 });
 

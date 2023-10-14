@@ -37,6 +37,10 @@ export const getProjectAccount = createAsyncThunk('project/getProjectAccount', a
     const response = await axios.get(`/project/${id}/account`);
     return response.data;
 });
+export const getProjectAccountTransactions = createAsyncThunk('project/getProjectAccountTransactions', async (id) => {
+    const response = await axios.get(`/project/${id}/account/transactions`);
+    return response.data;
+});
 
 const slice = createSlice({
     name: 'payment',

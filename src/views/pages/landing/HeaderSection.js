@@ -124,8 +124,7 @@ const HeaderSection = () => {
                                         <AnimateButton>
                                             <Button
                                                 component={RouterLink}
-                                                to="/dashboard/default"
-                                                target="_blank"
+                                                to="/projects"
                                                 size="large"
                                                 variant="contained"
                                                 color="secondary"
