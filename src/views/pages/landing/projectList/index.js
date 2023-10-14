@@ -48,10 +48,10 @@ const ProjectsList = () => {
     const { projects } = useSelector((state) => state.project);
     const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
     const matchDownMD = useMediaQuery(theme.breakpoints.down('lg'));
-
     const projectStatus = useSelector((state) => state.project.status);
 
     useEffect(() => {
+        console.log('here');
         dispatch(getPublicProjects());
     }, []);
 
@@ -107,8 +107,8 @@ const ProjectsList = () => {
         <Grid container spacing={2}>
             <Grid item xs={12}>
                 <Stack spacing={1}>
-                    <Typography variant="h4">My Projects</Typography>
-                    <Typography variant="caption">Projects created appear here</Typography>
+                    <Typography variant="h4">Projects Listed by Registries</Typography>
+                    <Typography variant="caption">Projects on-boarded and approved by registries appear here</Typography>
                 </Stack>
             </Grid>
             <Grid item xs={12}>

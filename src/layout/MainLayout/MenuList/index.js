@@ -1,4 +1,4 @@
-import { memo, useEffect, useState, useCallback } from 'react';
+import { memo, useEffect, useState } from 'react';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -7,49 +7,57 @@ import { Typography, useMediaQuery } from '@mui/material';
 // project imports
 import menuItem from 'menu-items';
 import NavGroup from './NavGroup';
-import LAYOUT_CONST from 'constant';
-import { HORIZONTAL_MAX_ITEM } from 'config';
 import useConfig from 'hooks/useConfig';
 import useAuth from 'hooks/useAuth';
 import { DashboardMenu } from 'menu-items/dashboard';
 
-// ==============================|| SIDEBAR MENU LIST ||============================== //
+import LAYOUT_CONST from 'constant';
+import { HORIZONTAL_MAX_ITEM } from 'config';
 
-const handlerFilterMenuItems = (items, role) => {
-    switch (role) {
-        case 'admin':
-            return items.filter((item) => item.id === 'admin');
-        case 'registry':
-            return items.filter((item) => item.id === 'originator');
-        case 'developer':
-            return items.filter((item) => item.id === 'developer');
-        default:
-            return items;
-    }
-};
+// ==============================|| SIDEBAR MENU LIST ||============================== //
 
 const MenuList = () => {
     const theme = useTheme();
-    const matchDownMd = useMediaQuery(theme.breakpoints.down('md'));
     const { layout } = useConfig();
+    const matchDownMd = useMediaQuery(theme.breakpoints.down('md'));
     const { user } = useAuth();
     const [menuItems, setMenuItems] = useState([...menuItem.items]);
     const [isLoading, setIsLoading] = useState(true);
 
     const getDash = DashboardMenu();
-    const handlerMenuItem = useCallback(() => {
-        const isFound = menuItems.some((element) => element.id === 'dashboard');
+    const handlerMenuItem = () => {
+        const isFound = menuItems.some((element) => {
+            if (element.id === 'dashboard') {
+                return true;
+            }
+            return false;
+        });
+
         if (getDash?.id !== undefined && !isFound) {
-            setMenuItems((prevItems) => [{ ...getDash }, ...prevItems]);
+            setMenuItems([{ ...getDash }, ...menuItems]);
         }
-    }, [getDash, menuItems]);
+    };
 
     useEffect(() => {
         handlerMenuItem();
-    }, [handlerMenuItem]);
+        // eslint-disable-next-line
+    }, []);
 
     useEffect(() => {
-        const filteredMenuItems = handlerFilterMenuItems(menuItems, user?.role);
+        let filteredMenuItems = [...menuItems];
+        switch (user?.role) {
+            case 'admin':
+                filteredMenuItems = filteredMenuItems.filter((item) => item.id === 'admin');
+                break;
+            case 'registry':
+                filteredMenuItems = filteredMenuItems.filter((item) => item.id === 'registry');
+                break;
+            case 'developer':
+                filteredMenuItems = filteredMenuItems.filter((item) => item.id === 'developer');
+                break;
+            default:
+                break;
+        }
         setMenuItems(filteredMenuItems);
         setIsLoading(false);
     }, [user]);
@@ -57,28 +65,24 @@ const MenuList = () => {
     // last menu-item to show in horizontal menu bar
     const lastItem = layout === LAYOUT_CONST.HORIZONTAL_LAYOUT && !matchDownMd ? HORIZONTAL_MAX_ITEM : null;
 
-    let lastItemIndex = menuItem.items.length - 1;
+    let lastItemIndex = menuItems.length - 1;
     let remItems = [];
     let lastItemId;
 
-    if (lastItem && lastItem < menuItem.items.length) {
-        lastItemId = menuItem.items[lastItem - 1].id;
+    if (lastItem && lastItem < menuItems.length) {
+        lastItemId = menuItems[lastItem - 1].id;
         lastItemIndex = lastItem - 1;
-        remItems = menuItem.items.slice(lastItem - 1, menuItem.items.length).map((item) => ({
+        remItems = menuItems.slice(lastItem - 1, menuItems.length).map((item) => ({
             title: item.title,
             elements: item.children
         }));
     }
 
     if (isLoading) {
-        return (
-            <Typography variant="h6" color="primary" align="center">
-                Loading Menu Items
-            </Typography>
-        );
+        return <Typography>Loading menu items...</Typography>;
     }
 
-    const navItems = menuItem.items.slice(0, lastItemIndex + 1).map((item) => {
+    const navItems = menuItems.slice(0, lastItemIndex + 1).map((item) => {
         switch (item.type) {
             case 'group':
                 return <NavGroup key={item.id} item={item} lastItem={lastItem} remItems={remItems} lastItemId={lastItemId} />;

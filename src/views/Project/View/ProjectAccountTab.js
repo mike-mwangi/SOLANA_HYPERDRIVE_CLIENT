@@ -41,85 +41,46 @@ const Wallet = () => {
 
     let accountContent = null;
 
-    if (account) {
-        accountContent = (
-            <>
-                <Grid item xs={12} lg={4} sm={6}>
-                    <RoundIconCard
-                        primary="FIAT BALANCE"
-                        secondary={isVisible ? `USD ${fiatBalance}` : '*****'}
-                        content={new Date().toLocaleDateString('en-US', { month: 'long', day: '2-digit', year: 'numeric' })}
-                        iconPrimary={RemoveRedEyeTwoToneIcon}
-                        color="primary.main"
-                        bgcolor="primary.light"
-                        onIconClick={handleIconClick}
-                    />
-                </Grid>
-                <Grid item xs={12} lg={4} sm={6}>
-                    <RoundIconCard
-                        primary="CRYPTO BALANCE"
-                        secondary={isVisible ? '$0' : '*****'}
-                        content={new Date().toLocaleDateString('en-US', { month: 'long', day: '2-digit', year: 'numeric' })}
-                        iconPrimary={RemoveRedEyeTwoToneIcon}
-                        color="success.dark"
-                        bgcolor="success.light"
-                        onIconClick={handleIconClick}
-                    />
-                </Grid>
-                <Grid item xs={12} lg={4} md={12}>
-                    <RoundIconCard
-                        primary="TOTAL BALANCE"
-                        secondary={isVisible ? `USD ${fiatBalance}` : '*****'}
-                        content={new Date().toLocaleDateString('en-US', { month: 'long', day: '2-digit', year: 'numeric' })}
-                        iconPrimary={RemoveRedEyeTwoToneIcon}
-                        color="warning.dark"
-                        bgcolor="warning.light"
-                        onIconClick={handleIconClick}
-                    />
-                </Grid>
-            </>
-        );
-    } else {
-        accountContent = (
-            <Grid item xs={12}>
-                <MainCard>
-                    <Typography variant="h5" align="center">
-                        No account for this project
-                    </Typography>
-                </MainCard>
+    accountContent = (
+        <>
+            <Grid item xs={12} lg={4} sm={6}>
+                <RoundIconCard
+                    primary="FIAT BALANCE"
+                    secondary={isVisible ? `USD ${fiatBalance}` : '*****'}
+                    content={new Date().toLocaleDateString('en-US', { month: 'long', day: '2-digit', year: 'numeric' })}
+                    iconPrimary={RemoveRedEyeTwoToneIcon}
+                    color="primary.main"
+                    bgcolor="primary.light"
+                    onIconClick={handleIconClick}
+                />
             </Grid>
-        );
-    }
+            <Grid item xs={12} lg={4} sm={6}>
+                <RoundIconCard
+                    primary="CRYPTO BALANCE"
+                    secondary={isVisible ? '$0' : '*****'}
+                    content={new Date().toLocaleDateString('en-US', { month: 'long', day: '2-digit', year: 'numeric' })}
+                    iconPrimary={RemoveRedEyeTwoToneIcon}
+                    color="success.dark"
+                    bgcolor="success.light"
+                    onIconClick={handleIconClick}
+                />
+            </Grid>
+            <Grid item xs={12} lg={4} md={12}>
+                <RoundIconCard
+                    primary="TOTAL BALANCE"
+                    secondary={isVisible ? `USD ${fiatBalance}` : '*****'}
+                    content={new Date().toLocaleDateString('en-US', { month: 'long', day: '2-digit', year: 'numeric' })}
+                    iconPrimary={RemoveRedEyeTwoToneIcon}
+                    color="warning.dark"
+                    bgcolor="warning.light"
+                    onIconClick={handleIconClick}
+                />
+            </Grid>
+        </>
+    );
 
     return (
         <Grid container spacing={gridSpacing}>
-            {project.fundingType === 'crowd_fund' && (
-                <>
-                    <Grid item xs={12} md={6}>
-                        <RoundIconCard
-                            primary="TARGET AMOUNT"
-                            secondary={isVisible ? `USD ${totalCost}` : '*****'}
-                            content={new Date().toLocaleDateString('en-US', { month: 'long', day: '2-digit', year: 'numeric' })}
-                            iconPrimary={RemoveRedEyeTwoToneIcon}
-                            color="primary.main"
-                            bgcolor="primary.light"
-                            onIconClick={handleIconClick}
-                        />
-                    </Grid>
-                    <Grid item xs={12} md={6}>
-                        <RoundIconCard
-                            primary="AMOUNT CROWD FUNDED"
-                            secondary={isVisible ? `USD ${account?.crowdFundAmount || 0}` : '*****'}
-                            content={new Date().toLocaleDateString('en-US', { month: 'long', day: '2-digit', year: 'numeric' })}
-                            iconPrimary={RemoveRedEyeTwoToneIcon}
-                            color="success.dark"
-                            bgcolor="success.light"
-                            onIconClick={handleIconClick}
-                        />
-                    </Grid>
-                </>
-            )}
-
             {accountContent}
 
             <Grid item xs={12}>
@@ -134,10 +95,6 @@ const Wallet = () => {
             </Grid>
             <Grid item xs={12} lg={4} sm={12}>
                 <HoverSocialCard primary="Total Available Credits" secondary="0" iconPrimary={TollIcon} color={theme.palette.dark.main} />
-            </Grid>
-
-            <Grid item xs={12}>
-                <TransactionHistory title="Transaction History" />
             </Grid>
         </Grid>
     );

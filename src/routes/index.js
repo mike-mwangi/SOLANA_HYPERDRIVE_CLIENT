@@ -1,15 +1,14 @@
-import { useRoutes } from 'react-router-dom';
 import { lazy } from 'react';
+import { useRoutes } from 'react-router-dom';
 
 // routes
+import Loadable from 'ui-component/Loadable';
 import AuthenticationRotes from './AuthenticationRoutes';
 import LoginRoutes from './LoginRoutes';
 import MainRoutes from './MainRoutes';
-import Loadable from 'ui-component/Loadable';
-import MinimalLayout from 'layout/MinimalLayout';
 
 const PagesLanding = Loadable(lazy(() => import('views/pages/landing')));
-const Projects = Loadable(lazy(() => import('views/pages/landing/projectList')));
+const Projects = Loadable(lazy(() => import('views/pages/landing/ProjectListPage')));
 const Registry = Loadable(lazy(() => import('views/pages/registry')));
 
 // ==============================|| ROUTING RENDER ||============================== //
@@ -19,11 +18,7 @@ export default function ThemeRoutes() {
         { path: '/', element: <PagesLanding /> },
         {
             path: '/projects',
-            element: (
-                <MinimalLayout>
-                    <Projects />
-                </MinimalLayout>
-            )
+            element: <Projects />
         },
         {
             path: '/registries',
