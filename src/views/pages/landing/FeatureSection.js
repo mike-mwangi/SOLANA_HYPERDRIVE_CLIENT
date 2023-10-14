@@ -16,6 +16,12 @@ import Offer3 from 'assets/images/landing/offer/offer-3.png';
 import Offer4 from 'assets/images/landing/offer/offer-4.png';
 import Offer5 from 'assets/images/landing/offer/offer-5.png';
 import Offer6 from 'assets/images/landing/offer/offer-6.png';
+import GvtIcon from 'assets/images/landing/card-icons/icon-government.png';
+import EnvIcon from 'assets/images/landing/card-icons/icon-environment.png';
+import RegistryIcon from 'assets/images/landing/card-icons/icon-registry.png';
+import BusinessIcon from 'assets/images/landing/card-icons/icon-business.png';
+import InvestorIcon from 'assets/images/landing/card-icons/icon-investor.png';
+import ServiceIcon from 'assets/images/landing/card-icons/icon-service.png';
 
 const OfferCard = ({ title, caption, image }) => {
     const theme = useTheme();
@@ -78,42 +84,42 @@ const FeatureSection = () => (
                         <OfferCard
                             title="Carbon Credit Registries"
                             caption="Unified management for diverse registries. Whether you're in compliance or voluntary markets, seamlessly manage, verify, and trade carbon credits all in one place."
-                            image={Offer1}
+                            image={RegistryIcon}
                         />
                     </Grid>
                     <Grid item md={4} sm={6}>
                         <OfferCard
                             title="Environmental Agencies"
                             caption="Real-time monitoring made easy. Access transparent, verifiable carbon credit records to enforce environmental standards effortlessly."
-                            image={Offer2}
+                            image={EnvIcon}
                         />
                     </Grid>
                     <Grid item md={4} sm={6}>
                         <OfferCard
                             title="Governments"
                             caption="Strengthen emission initiatives. Oversee both compliance and voluntary markets, ensuring industries align with national eco-goals."
-                            image={Offer3}
+                            image={GvtIcon}
                         />
                     </Grid>
                     <Grid item md={4} sm={6}>
                         <OfferCard
                             title="Businesses and Corporations"
                             caption="Meet your green goals. Whether adhering to strict regulations or voluntarily pledging for a better future, acquire and trade carbon credits smoothly."
-                            image={Offer4}
+                            image={BusinessIcon}
                         />
                     </Grid>
                     <Grid item md={4} sm={6}>
                         <OfferCard
                             title="Investors"
                             caption="Invest with clarity. Channel your resources into genuine emission reduction projects in both compliance and voluntary markets."
-                            image={Offer5}
+                            image={InvestorIcon}
                         />
                     </Grid>
                     <Grid item md={4} sm={6}>
                         <OfferCard
                             title="Technology and Service Providers"
                             caption="Collaborate for a greener future. Integrate your tech solutions and be part of a revolutionary platform driving global sustainability."
-                            image={Offer6}
+                            image={ServiceIcon}
                         />
                     </Grid>
                 </Grid>

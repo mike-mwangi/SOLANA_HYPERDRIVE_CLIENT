@@ -3,7 +3,7 @@ import { useTheme } from '@mui/material/styles';
 
 import logoDark from 'assets/images/logo-dark.svg';
 import logo from 'assets/images/logo.svg';
-import solanaLogo from 'assets/images/sol-logo.png';
+import solanaLogo from 'assets/images/logos/sol-logo.png';
 
 // ==============================|| LOGO SVG ||============================== //
 

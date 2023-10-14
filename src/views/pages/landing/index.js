@@ -6,8 +6,8 @@ import AppBar from 'ui-component/extended/AppBar';
 import HeaderSection from './HeaderSection';
 import CardSection from './CardSection';
 import FeatureSection from './FeatureSection';
-import PeopleSection from './PeopleSection';
 import FrameworkSection from './FrameworkSection';
+import ArchitectureSection from './ArchitectureSection';
 import FooterSection from './FooterSection';
 import CustomizeSection from './CustomizeSection';
 import StartupProjectSection from './StartupProjectSection';
@@ -80,7 +80,7 @@ const Landing = () => {
 
             {/* 9. framework section */}
             <SectionWrapper sx={{ bgcolor: theme.palette.mode === 'dark' ? 'dark.dark' : 'background.default' }}>
-                <FrameworkSection />
+                <ArchitectureSection />
             </SectionWrapper>
 
             {/* 10. footer section */}

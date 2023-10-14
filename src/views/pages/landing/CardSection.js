@@ -165,7 +165,7 @@ const CardSection = () => {
                                             color: theme.palette.mode === 'dark' ? theme.palette.dark[900] : theme.palette.grey[900]
                                         }}
                                     >
-                                        60000+
+                                        600000+
                                     </Typography>
                                     <Typography
                                         variant="h5"
@@ -183,6 +183,9 @@ const CardSection = () => {
                     </FadeInWhenVisible>
                 </Grid>
             </Grid>
+            <Typography variant="body2" color="textSecondary" sx={{ textAlign: 'center', mt: 6 }}>
+                <strong>Please note:</strong> <em>The numbers presented are not accurate and are for demonstration purposes only.</em>
+            </Typography>
         </Container>
     );
 };
