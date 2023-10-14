@@ -6,11 +6,6 @@ import { Box, Container, Grid, IconButton, Link, Stack, Typography } from '@mui/
 import Chip from 'ui-component/extended/Chip';
 import { frameworks } from './FrameworkSection';
 
-// assets
-// import Dribble from 'assets/images/landing/footer-dribble.png';
-// import Freepik from 'assets/images/landing/footer-freepik.png';
-// import Awards from 'assets/images/landing/footer-awards.png';
-
 import PublicIcon from '@mui/icons-material/Public';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import SportsBasketballIcon from '@mui/icons-material/SportsBasketball';
@@ -32,32 +27,10 @@ const FooterSection = () => {
     const theme = useTheme();
     const textColor = theme.palette.mode === 'dark' ? 'text.secondary' : 'text.hint';
 
-    // const dividerSX = {
-    //     borderImageSlice: 1,
-    //     borderImageSource: `linear-gradient(90deg, rgba(255, 255, 255, 0) -0.01%, rgba(255, 255, 255, 0.56) 51.97%, rgba(255, 255, 255, 0.03) 99.99%)`,
-    //     opacity: 0.5
-    // };
-
     return (
         <>
             <Container sx={{ mb: 15 }}>
                 <Grid container spacing={6}>
-                    {/* <Grid item xs={12}>
-                        <Stack spacing={4.25}>
-                            <Divider sx={dividerSX} />
-                            <Stack
-                                direction="row"
-                                justifyContent="center"
-                                spacing={{ xs: 1.5, sm: 6, md: 10, lg: 12 }}
-                                sx={{ overflow: 'hidden' }}
-                            >
-                                <img src={Dribble} alt="dribble" />
-                                <img src={Freepik} alt="freepik" />
-                                <img src={Awards} alt="awards" />
-                            </Stack>
-                            <Divider sx={dividerSX} />
-                        </Stack>
-                    </Grid> */}
                     <Grid item xs={12}>
                         <Grid container spacing={8}>
                             <Grid item xs={12} md={4}>
@@ -66,7 +39,7 @@ const FooterSection = () => {
                                         About CML
                                     </Typography>
                                     <Typography variant="body2" color={textColor}>
-                                        Carbon Markets Ledger (CML) is a groundbreaking platform that revolutionizes the carbon market with
+                                        Carbon Markets Ledger (CML) is a platform that revolutionizes the carbon markets with
                                         state-of-the-art tokenization processes. Designed for seamless and transparent trading experiences,
                                         it bridges the gap between environmental responsibility and modern technology, ensuring a
                                         sustainable future.
@@ -79,84 +52,65 @@ const FooterSection = () => {
                                     <Grid item xs={6} sm={3}>
                                         <Stack spacing={{ xs: 3, md: 5 }}>
                                             <Typography variant="h4" color={textColor} sx={{ fontWeight: 500 }}>
-                                                Help
+                                                Resources
                                             </Typography>
                                             <Stack spacing={{ xs: 1.5, md: 2.5 }}>
-                                                <FooterLink href="#" target="_blank" underline="none">
+                                                <FooterLink href="#" underline="none">
                                                     Blog
                                                 </FooterLink>
-                                                <FooterLink href="#" target="_blank" underline="none">
-                                                    Documentation
+                                                <FooterLink href="#" underline="none">
+                                                    Whitepaper
                                                 </FooterLink>
-                                                <FooterLink href="#" target="_blank" underline="none">
-                                                    Change Log
+                                                <FooterLink href="#" underline="none">
+                                                    FAQ
                                                 </FooterLink>
-                                                <FooterLink href="#" target="_blank" underline="none">
+                                            </Stack>
+                                        </Stack>
+                                    </Grid>
+                                    <Grid item xs={6} sm={3}>
+                                        <Stack spacing={{ xs: 3, md: 5 }}>
+                                            <Typography variant="h4" color={textColor} sx={{ fontWeight: 500 }}>
+                                                Community
+                                            </Typography>
+                                            <Stack spacing={{ xs: 1.5, md: 2.5 }}>
+                                                <FooterLink href="#" underline="none">
+                                                    Forum
+                                                </FooterLink>
+                                                <FooterLink href="#" underline="none">
+                                                    Events
+                                                </FooterLink>
+                                                <FooterLink href="#" underline="none">
+                                                    Partnerships
+                                                </FooterLink>
+                                            </Stack>
+                                        </Stack>
+                                    </Grid>
+                                    <Grid item xs={6} sm={3}>
+                                        <Stack spacing={{ xs: 3, md: 5 }}>
+                                            <Typography variant="h4" color={textColor} sx={{ fontWeight: 500 }}>
+                                                Legal
+                                            </Typography>
+                                            <Stack spacing={{ xs: 1.5, md: 2.5 }}>
+                                                <FooterLink href="#" underline="none">
+                                                    Terms of Service
+                                                </FooterLink>
+                                                <FooterLink href="#" underline="none">
+                                                    Privacy Policy
+                                                </FooterLink>
+                                            </Stack>
+                                        </Stack>
+                                    </Grid>
+                                    <Grid item xs={6} sm={3}>
+                                        <Stack spacing={{ xs: 3, md: 5 }}>
+                                            <Typography variant="h4" color={textColor} sx={{ fontWeight: 500 }}>
+                                                Contact Us
+                                            </Typography>
+                                            <Stack spacing={{ xs: 1.5, md: 2.5 }}>
+                                                <FooterLink href="#" underline="none">
+                                                    Email
+                                                </FooterLink>
+                                                <FooterLink href="#" underline="none">
                                                     Support
-                                                </FooterLink>
-                                            </Stack>
-                                        </Stack>
-                                    </Grid>
-                                    <Grid item xs={6} sm={3}>
-                                        <Stack spacing={{ xs: 3, md: 5 }}>
-                                            <Typography variant="h4" color={textColor} sx={{ fontWeight: 500 }}>
-                                                Store Help
-                                            </Typography>
-                                            <Stack spacing={{ xs: 1.5, md: 2.5 }}>
-                                                <FooterLink href="https://mui.com/store/license/" target="_blank" underline="none">
-                                                    License
-                                                </FooterLink>
-                                                <FooterLink
-                                                    href="https://mui.com/store/customer-refund-policy/"
-                                                    target="_blank"
-                                                    underline="none"
-                                                >
-                                                    Refund Policy
-                                                </FooterLink>
-                                                <FooterLink
-                                                    href="https://support.mui.com/hc/en-us/sections/360002564979-For-customers"
-                                                    target="_blank"
-                                                    underline="none"
-                                                >
-                                                    Submit a Request
-                                                </FooterLink>
-                                            </Stack>
-                                        </Stack>
-                                    </Grid>
-                                    <Grid item xs={6} sm={3}>
-                                        <Stack spacing={{ xs: 3, md: 5 }}>
-                                            <Typography variant="h4" color={textColor} sx={{ fontWeight: 500 }}>
-                                                Berry Eco-System
-                                            </Typography>
-                                            <Stack spacing={{ xs: 1.5, md: 2.5 }}>
-                                                {frameworks.map((item, index) => (
-                                                    <FooterLink href={item.link} target="_blank" underline="none" key={index}>
-                                                        {item.title}
-                                                        {item.isUpcoming && (
-                                                            <Chip variant="outlined" size="small" label="Upcoming" sx={{ ml: 0.5 }} />
-                                                        )}
-                                                    </FooterLink>
-                                                ))}
-                                            </Stack>
-                                        </Stack>
-                                    </Grid>
-                                    <Grid item xs={6} sm={3}>
-                                        <Stack spacing={{ xs: 3, md: 5 }}>
-                                            <Typography variant="h4" color={textColor} sx={{ fontWeight: 500 }}>
-                                                Free Versions
-                                            </Typography>
-                                            <Stack spacing={{ xs: 1.5, md: 2.5 }}>
-                                                <FooterLink href="#" target="_blank" underline="none">
-                                                    Free React MUI
-                                                </FooterLink>
-                                                <FooterLink href="#" target="_blank" underline="none">
-                                                    Free Bootstrap 5
-                                                </FooterLink>
-                                                <FooterLink href="#" target="_blank" underline="none">
-                                                    Free Angular
-                                                </FooterLink>
-                                                <FooterLink href="#" target="_blank" underline="none">
-                                                    Free Django
                                                 </FooterLink>
                                             </Stack>
                                         </Stack>
@@ -175,20 +129,15 @@ const FooterSection = () => {
                         justifyContent="space-between"
                         spacing={{ xs: 1.5, sm: 1, md: 3 }}
                     >
-                        <Typography color="text.secondary">
-                            © Carbon Markets Ledger
-                            {/* <Link href="#" target="_blank" underline="hover">
-                                CodedThemes
-                            </Link> */}
-                        </Typography>
+                        <Typography color="text.secondary">© Carbon Markets Ledger</Typography>
                         <Stack direction="row" alignItems="center" spacing={{ xs: 3, sm: 1.5, md: 2 }}>
-                            <IconButton size="small" component={Link} href="#" target="_blank">
+                            <IconButton size="small" component={Link} href="#">
                                 <PublicIcon sx={{ color: 'text.secondary', '&:hover': { color: 'error.main' } }} />
                             </IconButton>
-                            <IconButton size="small" component={Link} href="#" target="_blank">
+                            <IconButton size="small" component={Link} href="#">
                                 <TwitterIcon sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' } }} />
                             </IconButton>
-                            <IconButton size="small" component={Link} href="#" target="_blank">
+                            <IconButton size="small" component={Link} href="#">
                                 <SportsBasketballIcon sx={{ color: 'text.secondary', '&:hover': { color: 'warning.main' } }} />
                             </IconButton>
                         </Stack>
