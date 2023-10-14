@@ -8,7 +8,7 @@ function routeRegistry(user) {
         return `/registry/edit/${user?.profile?._id}`;
     }
 
-    return '/registry/dashboard';
+    return '/projects/list';
 }
 
 export function getLoginReroute(user) {

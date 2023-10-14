@@ -122,7 +122,7 @@ const onBoardingPage = () => {
                                             variant="contained"
                                             color="secondary"
                                             onClick={() => {
-                                                history('/registry/list');
+                                                history('/projects/list');
                                             }}
                                             sx={{ my: 3, ml: 1 }}
                                         >
