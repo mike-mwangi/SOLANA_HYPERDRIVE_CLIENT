@@ -1,6 +1,6 @@
 # SOLANA_HYPERDRIVE_CLIENT
 
-![Carbon Markets Ledger Logo](./src/assets/images/architecture/cml_arc.jpeg)
+![Carbon Markets Ledger Logo](./src/assets/images/logos/cml_nobg.svg)
 
 ## Introduction
 
@@ -51,7 +51,7 @@ The escalating concerns surrounding climate change have led to the advent of car
 
 ## System Architecture
 
-![System Architecture Diagram](./src/assets/images/architecture/system_architecture.jpeg)
+![System Architecture Diagram](./src/assets/images/architecture/cml_arc.jpeg)
 
 ## Solana's Key Role
 
