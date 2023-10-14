@@ -78,27 +78,27 @@ const RtlInfoSection = () => {
                                     fontSize: { xs: '1.563rem', md: '2.5rem', xl: '3.125rem' }
                                 }}
                             >
-                                Choose Berry for
+                                Choose CML for
                             </Typography>
                         </Box>
                         <Slider {...settings}>
                             <Typography color="text.hint" variant="h2">
-                                Easy Customizability
+                                Unified Carbon Registry
                             </Typography>
                             <Typography color="text.hint" variant="h2">
-                                Highly Responsive
+                                Transparent Transactions
                             </Typography>
                             <Typography color="text.hint" variant="h2">
-                                Design Consistency
+                                Streamlined Verification
                             </Typography>
                             <Typography color="text.hint" variant="h2">
-                                Effective Support
+                                Global Standardization
                             </Typography>
                             <Typography color="text.hint" variant="h2">
-                                Standardization
+                                Enhanced Trust & Integrity
                             </Typography>
                             <Typography color="text.hint" variant="h2">
-                                Compatibility
+                                Seamless Trading Experience
                             </Typography>
                         </Slider>
                     </Stack>

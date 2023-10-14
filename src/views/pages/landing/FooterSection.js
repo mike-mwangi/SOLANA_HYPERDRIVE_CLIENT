@@ -63,15 +63,17 @@ const FooterSection = () => {
                             <Grid item xs={12} md={4}>
                                 <Stack spacing={{ xs: 2, md: 5 }}>
                                     <Typography variant="h4" color={textColor} sx={{ fontWeight: 500 }}>
-                                        About Berry
+                                        About CML
                                     </Typography>
                                     <Typography variant="body2" color={textColor}>
-                                        Berry React is a dashboard template that utilizes the Material-UI framework and the React JavaScript
-                                        library. It offers a range of features and customization options to help you create a powerful and
-                                        user-friendly admin panel.
+                                        Carbon Markets Ledger (CML) is a groundbreaking platform that revolutionizes the carbon market with
+                                        state-of-the-art tokenization processes. Designed for seamless and transparent trading experiences,
+                                        it bridges the gap between environmental responsibility and modern technology, ensuring a
+                                        sustainable future.
                                     </Typography>
                                 </Stack>
                             </Grid>
+
                             <Grid item xs={12} md={8}>
                                 <Grid container spacing={{ xs: 5, md: 2 }}>
                                     <Grid item xs={6} sm={3}>
