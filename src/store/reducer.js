@@ -9,6 +9,7 @@ import menuReducer from './slices/menu';
 import registryReducer from './slices/registry';
 import projectReducer from './slices/project';
 import fileReducer from './slices/file';
+import paymentReducer from './slices/payment';
 
 // ==============================|| COMBINE REDUCER ||============================== //
 
@@ -23,6 +24,7 @@ const reducer = combineReducers({
     ),
     registry: registryReducer,
     project: projectReducer,
+    payment: paymentReducer,
     file: fileReducer,
     menu: menuReducer
 });
