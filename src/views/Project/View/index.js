@@ -23,6 +23,7 @@ import RegistryDetailsCard from 'ui-component/cards/FinanceDetailsCard';
 import MainCard from 'ui-component/cards/MainCard';
 import ProjectFilesCard from 'ui-component/cards/ProjectFilesCard';
 import ProjectInfoCard from 'ui-component/cards/ProjectInfoCard';
+import ProjectAccount from './ProjectAccountTab';
 
 function TabPanel({ children, value, index, ...other }) {
     return (
@@ -81,14 +82,12 @@ const ProjectView = () => {
             label: 'Summary',
             allowedRoles: ['registry', 'admin', 'submittingOrganization', 'investor', 'technicalAssistant'],
             content: (project, user) => <Summary user={user} />
+        },
+        {
+            label: 'Project Account',
+            allowedRoles: ['registry'],
+            content: (project, user) => <ProjectAccount />
         }
-        // {
-        //     label: 'Project Files and Folders',
-        //     allowedRoles: ['owner', 'admin', 'submittingOrganization', 'investor', 'technicalAssistant'],
-        //     content: (project, user) => <FilesAndFoldersTab project={project} user={user} />,
-        //     condition: (project, user) =>
-        //         (user?.role !== 'investor' && user?.role !== 'technicalAssistant') || project.requestStatus === 'approved'
-        // }
     ];
 
     const filteredTabOptions = tabOptions.filter(
