@@ -1,6 +1,6 @@
 # SOLANA_HYPERDRIVE_CLIENT
 
-![Carbon Markets Ledger Logo](./src/assets/images/logos/cml_nobg.svg)
+![Carbon Markets Ledger Logo](./src/assets/images/logos/cml-logo.png)
 
 ## Introduction
 
@@ -68,6 +68,12 @@ Data within the Carbon Markets Ledger platform is stored securely utilizing AWS 
 
 -   **Project Data On-chain Contract**: [View Contract](https://dummylink1.com)
 -   **Tokenization Contract**: [View Contract](https://dummylink2.com)
+
+## Backend Repository
+
+The backend and smart contracts integration for this project were developed in a separate repository:
+
+- [SOLANA_HYPERDRIVE_SERVER Repository](https://github.com/mike-mwangi/SOLANA_HYPERDRIVE_SERVER)
 
 ## Conclusion
 
