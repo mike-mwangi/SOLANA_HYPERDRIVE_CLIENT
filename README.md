@@ -1,6 +1,6 @@
 # SOLANA_HYPERDRIVE_CLIENT
 
-![Carbon Markets Ledger Logo](./src/assets/images/logos/cml-logo.png)
+![Carbon Markets Ledger Logo](./src/assets/images/logos/cml-logo-withbg.png)
 
 ## Introduction
 
