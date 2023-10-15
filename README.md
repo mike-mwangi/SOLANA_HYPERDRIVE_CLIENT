@@ -66,14 +66,20 @@ Data within the Carbon Markets Ledger platform is stored securely utilizing AWS 
 
 ## Contract Links
 
--   **Project Data On-chain Contract**: [View Contract](https://dummylink1.com)
--   **Tokenization Contract**: [View Contract](https://dummylink2.com)
+-   **Project Data On-chain Contract**: [View Contract](https://explorer.solana.com/address/BfE5siVdPnnezakBy37mvVABQfSCNZyoijLZFmxzjoDu?cluster=devnet)
 
 ## Backend Repository
 
 The backend and smart contracts integration for this project were developed in a separate repository:
 
-- [SOLANA_HYPERDRIVE_SERVER Repository](https://github.com/mike-mwangi/SOLANA_HYPERDRIVE_SERVER)
+-   Backend Repository: [SOLANA_HYPERDRIVE_SERVER Repository](https://github.com/mike-mwangi/SOLANA_HYPERDRIVE_SERVER)
+
+## Live Platform and Pitch Deck
+-   Live Platform: [Carbon Markets Ledger Live Platform](https://carbonmarketsledger.verst.earth/)
+
+-   Pitch Deck: [Carbon Markets Ledger Pitch Deck](https://www.canva.com/design/DAFxUMtaUG4/c8Mr5Jeep9lBpXNsaj_09w/view?utm_content=DAFxUMtaUG4&utm_campaign=designshare&utm_medium=link&utm_source=editor)
+
+-   Pitch Video and System Demo: [Carbon Markets Ledger Pitch Video](https://youtu.be/s0UMiA5HSRs?si=nnDfQs_OlJB1JPzi)
 
 ## Conclusion
 
