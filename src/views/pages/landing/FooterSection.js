@@ -8,6 +8,7 @@ import { frameworks } from './FrameworkSection';
 
 import PublicIcon from '@mui/icons-material/Public';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 import SportsBasketballIcon from '@mui/icons-material/SportsBasketball';
 
 // Link - custom style
@@ -61,7 +62,7 @@ const FooterSection = () => {
                                                 <FooterLink href="#" underline="none">
                                                     Whitepaper
                                                 </FooterLink>
-                                                <FooterLink href="#" underline="none">
+                                                <FooterLink href="/faqs" underline="none">
                                                     FAQ
                                                 </FooterLink>
                                             </Stack>
@@ -106,7 +107,7 @@ const FooterSection = () => {
                                                 Contact Us
                                             </Typography>
                                             <Stack spacing={{ xs: 1.5, md: 2.5 }}>
-                                                <FooterLink href="#" underline="none">
+                                                <FooterLink href="mailto:carbonmarketsledger@gmail.com" underline="none">
                                                     Email
                                                 </FooterLink>
                                                 <FooterLink href="#" underline="none">
@@ -131,14 +132,19 @@ const FooterSection = () => {
                     >
                         <Typography color="text.secondary">© Carbon Markets Ledger</Typography>
                         <Stack direction="row" alignItems="center" spacing={{ xs: 3, sm: 1.5, md: 2 }}>
-                            <IconButton size="small" component={Link} href="#">
-                                <PublicIcon sx={{ color: 'text.secondary', '&:hover': { color: 'error.main' } }} />
+                            <IconButton size="small" component={Link} href="https://carbonmarketsledger.verst.earth/" target="_blank">
+                                <PublicIcon sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' } }} />
                             </IconButton>
-                            <IconButton size="small" component={Link} href="#">
+                            <IconButton size="small" component={Link} href="https://twitter.com/carbon_m_ledger" target="_blank">
                                 <TwitterIcon sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' } }} />
                             </IconButton>
-                            <IconButton size="small" component={Link} href="#">
-                                <SportsBasketballIcon sx={{ color: 'text.secondary', '&:hover': { color: 'warning.main' } }} />
+                            <IconButton
+                                size="small"
+                                component={Link}
+                                href="https://youtu.be/s0UMiA5HSRs?si=sLWw0bu1AncN8zPh"
+                                target="_blank"
+                            >
+                                <YouTubeIcon sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' } }} />
                             </IconButton>
                         </Stack>
                     </Stack>

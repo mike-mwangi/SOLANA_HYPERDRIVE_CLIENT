@@ -10,6 +10,8 @@ import MainRoutes from './MainRoutes';
 const PagesLanding = Loadable(lazy(() => import('views/pages/landing')));
 const Projects = Loadable(lazy(() => import('views/pages/landing/ProjectListPage')));
 const Registry = Loadable(lazy(() => import('views/pages/registry')));
+const Faqs = Loadable(lazy(() => import('views/pages/faqs')));
+const ContactUs = Loadable(lazy(() => import('views/pages/contact-us')));
 
 // ==============================|| ROUTING RENDER ||============================== //
 
@@ -23,6 +25,14 @@ export default function ThemeRoutes() {
         {
             path: '/registries',
             element: <Registry />
+        },
+        {
+            path: '/faqs',
+            element: <Faqs />
+        },
+        {
+            path: '/contact-us',
+            element: <ContactUs />
         },
         LoginRoutes,
         AuthenticationRotes,
