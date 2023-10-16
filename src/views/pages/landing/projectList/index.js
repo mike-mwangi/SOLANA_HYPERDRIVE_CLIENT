@@ -109,6 +109,10 @@ const ProjectsList = () => {
                 <Stack spacing={1}>
                     <Typography variant="h4">Projects Listed by Registries</Typography>
                     <Typography variant="caption">Projects on-boarded and approved by registries appear here</Typography>
+                    <Typography variant="body2" color="textSecondary" sx={{ textAlign: 'left', mt: 6 }}>
+                        <strong>Please note:</strong>{' '}
+                        <em>The onboarded projects listed here are fictional and intended for demonstration purposes only.</em>{' '}
+                    </Typography>
                 </Stack>
             </Grid>
             <Grid item xs={12}>
