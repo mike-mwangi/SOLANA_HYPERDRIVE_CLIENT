@@ -310,10 +310,10 @@ const ProjectCard = ({ project, link }) => {
                                         variant="body2"
                                         sx={{
                                             overflow: 'hidden',
-                                            height: 45
+                                            height: 100
                                         }}
                                     >
-                                        {getNChars(project?.description, 50)}
+                                        {getNChars(project?.description, 300)}
                                     </Typography>
                                 </Grid>
                             </Grid>
