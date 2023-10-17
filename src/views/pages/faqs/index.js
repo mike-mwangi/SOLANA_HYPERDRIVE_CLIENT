@@ -63,6 +63,30 @@ const basicData = [
     },
     {
         id: 'faq7',
+        title: 'How will automated data integration enhance the platform?',
+        content:
+            'Our forthcoming APIs will interact directly with various carbon registries, enabling automated data querying and population. This ensures stakeholders always have access to updated, comprehensive information, eliminating manual entry and ensuring data consistency.'
+    },
+    {
+        id: 'faq8',
+        title: 'Can other technology providers integrate with the Carbon Markets Ledger?',
+        content:
+            "Yes, we're working on providing endpoints for diverse tech providers, including fintech firms, market analysts, and data aggregators. These endpoints will facilitate seamless data consumption, fostering innovation and promoting market transparency."
+    },
+    {
+        id: 'faq9',
+        title: 'What analytics capabilities will the platform offer in the future?',
+        content:
+            "We're in the process of developing sophisticated data analytics tools that will offer insights into carbon market trends. Additionally, these tools will provide an overarching view of the environmental state, empowering stakeholders to make informed, proactive decisions."
+    },
+    {
+        id: 'faq10',
+        title: 'How does the platform intend to assist national governments?',
+        content:
+            "We're tailoring our platform to help governments monitor and enhance compliance markets at the national level. By offering a streamlined approach to data access and reporting, we aim to refine the regulatory framework, ensuring environmental targets are met efficiently."
+    },
+    {
+        id: 'faq11',
         title: 'How can I reach out for further questions or support?',
         content:
             'For any additional inquiries, you can email us directly at carbonmarketsledger@gmail.com or visit our "Contact Us" page on the platform.'
