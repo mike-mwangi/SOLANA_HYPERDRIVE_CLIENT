@@ -81,6 +81,24 @@ The backend and smart contracts integration for this project were developed in a
 
 -   Pitch Video and System Demo: [Carbon Markets Ledger Pitch Video](https://youtu.be/s0UMiA5HSRs?si=nnDfQs_OlJB1JPzi)
 
+## Version 2.0 Roadmap
+
+As we forge ahead, our commitment to enhancing the Carbon Markets Ledger platform and maximizing its impact is unwavering. Here's a sneak peek into the future developments planned for the next iteration of the Carbon Markets Ledger:
+
+1. **Automated Data Integration**:
+    - Recognizing the intricacies of managing data across multiple registries, we are on the brink of devising APIs designed to interact with these registries. This will facilitate automated querying and data population, simplifying the process for stakeholders and ensuring up-to-date, comprehensive information is always at their fingertips.
+
+2. **Data Sharing Endpoints**:
+    - As we aim to establish ourselves as a universal carbon market hub, we intend to provide endpoints that various technology providers, including fintech firms, market analysts, and data aggregators, can plug into. This will usher in a new era of data consumption, where access to carbon project data is seamless, fostering innovation and market transparency.
+
+3. **Enhanced Analytics for Carbon Markets**:
+    - Knowledge is power. To supercharge the decision-making processes of stakeholders, we plan to roll out sophisticated data analytics tools. These tools will not only present insights on carbon market trends but also provide a bird's-eye view of our environment's health, enabling proactive measures for its protection.
+
+4. **Collaboration with Governments for Compliance Markets**:
+    - National governments are integral players in the carbon market dynamics. Our platform will be tailored to assist governments in monitoring and enhancing compliance markets at the national level. By providing a streamlined approach to data access and reporting, we aim to optimize the regulatory framework, ensuring environmental objectives are met effectively and efficiently.
+
+Our roadmap embodies our relentless pursuit of excellence, innovation, and global impact. As we journey together into this promising future, we invite our stakeholders to share their insights, ensuring our platform continues to evolve in sync with the needs of the carbon markets ecosystem.
+
 ## Conclusion
 
 The Carbon Markets Ledger project endeavors to eliminate the existing barriers in global carbon markets by leveraging the prowess of blockchain technology and asset tokenization. By significantly streamlining the verification and trading processes of carbon credits, this venture aligns with global sustainability aspirations and is poised to deliver both economic and environmental dividends on a global scale.
